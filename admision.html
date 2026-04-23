@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Protocolo de Admisión - Basgiath War College</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Noto+Serif:ital,wght@0,100..900;1,100..900&amp;family=Work+Sans:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "metallic-gold": "#C5A059",
+                        "inverse-on-surface": "#313030",
+                        "tertiary-fixed-dim": "#c8c6c6",
+                        "on-primary-fixed": "#241a00",
+                        "on-tertiary-container": "#b0aeae",
+                        "on-surface-variant": "#e3beb8",
+                        "on-background": "#e5e2e1",
+                        "on-tertiary": "#303030",
+                        "error": "#ffb4ab",
+                        "on-secondary-fixed-variant": "#920703",
+                        "inverse-primary": "#735c00",
+                        "surface-container-high": "#2a2a2a",
+                        "primary-fixed": "#ffe088",
+                        "on-secondary-fixed": "#410000",
+                        "on-primary-fixed-variant": "#574500",
+                        "tertiary": "#c8c6c6",
+                        "outline-variant": "#5a403c",
+                        "surface-container": "#201f1f",
+                        "on-surface": "#e5e2e1",
+                        "surface-container-highest": "#353534",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "tertiary-fixed": "#e4e2e2",
+                        "secondary-container": "#920703",
+                        "surface-container-low": "#1c1b1b",
+                        "on-primary-container": "#d0ab33",
+                        "on-primary": "#3c2f00",
+                        "surface-bright": "#3a3939",
+                        "on-error-container": "#ffdad6",
+                        "surface-tint": "#e9c349",
+                        "on-tertiary-fixed": "#1b1c1c",
+                        "tertiary-container": "#424242",
+                        "surface-variant": "#353534",
+                        "on-secondary": "#690000",
+                        "background": "#131313",
+                        "inverse-surface": "#e5e2e1",
+                        "surface": "#131313",
+                        "surface-container-lowest": "#0e0e0e",
+                        "primary-fixed-dim": "#e9c349",
+                        "primary": "#e9c349",
+                        "secondary-fixed-dim": "#ffb4a8",
+                        "secondary": "#ffb4a8",
+                        "secondary-fixed": "#ffdad4",
+                        "outline": "#aa8984",
+                        "on-secondary-container": "#ff9a8a",
+                        "on-error": "#690005",
+                        "surface-dim": "#131313",
+                        "primary-container": "#524000",
+                        "error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Newsreader"],
+                        "body": ["Noto Serif"],
+                        "label": ["Work Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            font-family: 'Noto Serif', serif;
+        }
+        h1, h2, h3, .font-newsreader {
+            font-family: 'Newsreader', serif;
+        }
+        .codex-card {
+            position: relative;
+        }
+        .codex-headline {
+            position: absolute;
+            top: -1.5rem;
+            left: 2rem;
+            z-index: 10;
+        }
+        .glass-panel {
+            background: rgba(53, 53, 52, 0.7);
+            backdrop-filter: blur(16px);
+        }
+        .gold-border {
+            border: 1px solid rgba(233, 195, 73, 0.2);
+            box-shadow: 0 0 15px rgba(233, 195, 73, 0.05);
+        }
+        #mobile-drawer {
+            transition: transform 0.3s ease-in-out;
+        }
+        #mobile-drawer.translate-x-full {
+            transform: translateX(100%);
+        }
+    </style>
+</head>
+<body class="min-h-[1024px] selection:bg-primary/30 selection:text-primary">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 h-16 bg-[#0e0e0e]/70 backdrop-blur-xl border-b border-white/5">
+<div class="flex justify-between items-center px-6 h-full w-full">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#e9c349]">shield</span>
+<span class="font-headline font-bold tracking-tighter text-[#e9c349] text-lg">BASGIATH</span>
+</div>
+<!-- Desktop Nav -->
+<nav class="hidden md:flex items-center gap-x-8">
+<a class="text-zinc-400 hover:text-[#e9c349] transition-colors font-label text-[0.75rem] font-medium tracking-widest uppercase" href="#">Inicio</a>
+<a class="text-zinc-400 hover:text-[#e9c349] transition-colors font-label text-[0.75rem] font-medium tracking-widest uppercase" href="#">Jinetes</a>
+<a class="text-zinc-400 hover:text-[#e9c349] transition-colors font-label text-[0.75rem] font-medium tracking-widest uppercase" href="#">Dragones</a>
+<a class="text-zinc-400 hover:text-[#e9c349] transition-colors font-label text-[0.75rem] font-medium tracking-widest uppercase" href="#">Mapas</a>
+<a class="text-[#e9c349] transition-colors font-label text-[0.75rem] font-medium tracking-widest uppercase" href="#">CONVOCATORIA</a>
+<a class="text-zinc-400 hover:text-[#e9c349] transition-colors font-label text-[0.75rem] font-medium tracking-widest uppercase" href="#">El Peaje</a>
+</nav>
+<div class="flex items-center">
+<!-- Hamburger Menu Icon -->
+<button class="p-2 text-[#e9c349] active:scale-95 duration-200 transition-colors" id="drawer-open">
+<span class="material-symbols-outlined text-2xl">menu</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Mobile Navigation Drawer Overlay -->
+<div class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] hidden transition-opacity duration-300" id="drawer-overlay"></div>
+<!-- Mobile Navigation Drawer -->
+<aside class="fixed inset-y-0 right-0 z-[70] h-full w-80 bg-[#0e0e0e] shadow-[32px_0_64px_rgba(0,0,0,0.5)] translate-x-full transition-all duration-300 ease-in-out flex flex-col p-8" id="mobile-drawer">
+<div class="flex justify-between items-center mb-8">
+<span class="font-headline italic text-2xl font-black text-[#e9c349]">THE ARCHIVIST</span>
+<button class="p-2 text-[#e9c349]" id="drawer-close">
+<span class="material-symbols-outlined text-3xl">close</span>
+</button>
+</div>
+<nav class="flex flex-col gap-y-4">
+<a class="flex items-center gap-4 py-3 text-zinc-500 font-label uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] transition-all" href="#">
+<span class="material-symbols-outlined text-xl">home</span>
+<span>INICIO</span>
+</a>
+<a class="flex items-center gap-4 py-3 text-zinc-500 font-label uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] transition-all" href="#">
+<span class="material-symbols-outlined text-xl">military_tech</span>
+<span>JINETES</span>
+</a>
+<a class="flex items-center gap-4 py-3 text-zinc-500 font-label uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] transition-all" href="#">
+<span class="material-symbols-outlined text-xl">auto_awesome</span>
+<span>DRAGONES</span>
+</a>
+<a class="flex items-center gap-4 py-3 text-zinc-500 font-label uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] transition-all" href="#">
+<span class="material-symbols-outlined text-xl">map</span>
+<span>MAPAS</span>
+</a>
+<a class="flex items-center gap-4 py-3 text-[#e9c349] font-label uppercase tracking-widest text-xs pl-4 font-bold border-l-2 border-[#e9c349] bg-zinc-900 transition-all" href="#">
+<span class="material-symbols-outlined text-xl">scroll</span>
+<span>CONVOCATORIA</span>
+</a>
+<a class="flex items-center gap-4 py-3 text-zinc-500 font-label uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] transition-all" href="#">
+<span class="material-symbols-outlined text-xl">payments</span>
+<span>EL PEAJE</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-white/5 pt-8 grid grid-cols-2 gap-4">
+<button class="flex flex-col items-center p-4 text-zinc-400 hover:text-[#e9c349] transition-colors">
+<span class="material-symbols-outlined">search</span>
+<span class="text-[10px] font-label uppercase mt-1">Buscar</span>
+</button>
+<button class="flex flex-col items-center p-4 text-zinc-400 hover:text-[#e9c349] transition-colors">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-label uppercase mt-1">Perfil</span>
+</button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="pt-16 min-h-[1024px]">
+<!-- Hero Section -->
+<section class="relative h-[716px] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent z-10"></div>
+<img alt="Basgiath War College" class="w-full h-full object-cover opacity-40 grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATsyDKyHvloMcPypcGPRyekxGgszp7pIOv3NBDEy6GAYzsjkSqk3W5TYRUozQw52b_eEhj5AGw-p26Z_l9j_AnNr19DTbRGEm6CzrqFTmFBKVrCz-Xt1ARDOtqbun6bq043F_651HBcfG1C5i6YCFzZXxk0UCapjXG4YcKE7nMR0pDIktijuBRWXTmIoGHi5KGshPGvE478vsKX3-AG73LweXvBTkKuraEFypFLMA91lrqV2TBHfkb-6QHYJNho314-yCGku81ZBU"/>
+</div>
+<div class="relative z-20 text-center px-6 max-w-5xl">
+<span class="text-primary font-label text-sm uppercase tracking-[0.4em] mb-4 block">Documento Clasificado: Registro de Ingreso</span>
+<h1 class="text-5xl md:text-8xl font-headline font-black text-on-surface leading-tight mb-8 tracking-tighter">
+                    PROTOCOLO DE ADMISIÓN: <br/> <span class="text-primary">CUADRANTE DE JINETES</span>
+</h1>
+<p class="text-lg md:text-2xl font-body text-on-surface-variant max-w-3xl mx-auto leading-relaxed">
+                    Entrar en el Colegio de Guerra de Basgiath es un honor reservado para pocos, y una sentencia de muerte para la mayoría. Solo aquellos con la voluntad de acero y el espíritu de un dragón sobrevivirirán al primer día. Aquí, la debilidad se purga; la fuerza se forja.
+                </p>
+</div>
+</section>
+<!-- Admission Sections -->
+<div class="max-w-7xl mx-auto px-8 py-24 space-y-32">
+<!-- Section 1: Requisitos de Aptitud -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+<div class="lg:col-span-5">
+<h2 class="text-5xl font-headline font-bold text-primary mb-10 border-l-4 border-primary pl-8">Requisitos de Aptitud</h2>
+<p class="font-body text-zinc-400 mb-10 text-lg leading-relaxed">
+                        No buscamos meros soldados. Buscamos jinetes. El Cuadrante exige una sincronía perfecta entre el cuerpo, la mente y el instinto táctico. Si uno de estos pilares falla, el dragón te consumirá antes del primer vuelo.
+                    </p>
+<div class="p-8 bg-surface-container-low border border-white/5 space-y-8">
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-primary text-3xl">fitness_center</span>
+<div>
+<h4 class="font-label font-bold text-xs uppercase tracking-widest text-on-surface mb-2">Resistencia Física</h4>
+<p class="text-zinc-500">Capacidad para escalar el parapeto bajo tormenta y soportar combates cuerpo a cuerpo prolongados.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-primary text-3xl">psychology</span>
+<div>
+<h4 class="font-label font-bold text-xs uppercase tracking-widest text-on-surface mb-2">Conocimiento Táctico</h4>
+<p class="text-zinc-500">Dominio de la historia militar de Navarre y las leyes del Codex de Basgiath.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-primary text-3xl">auto_awesome</span>
+<div>
+<h4 class="font-label font-bold text-xs uppercase tracking-widest text-on-surface mb-2">Espíritu Inquebrantable</h4>
+<p class="text-zinc-500">Voluntad para enfrentar la muerte sin parpadear y lealtad absoluta al Cuadrante.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-7">
+<div class="relative group overflow-hidden gold-border rounded-sm">
+<img alt="Entrenamiento Nocturno en Basgiath" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/ADBb0ujqj_s1ow9dDBr5e765a44du1N6FUxABw-PBcxd1fqF0auZpF2Y7-CENu2eIg9x6vw3f3rxB102WfEsQ98jjLuT4M90A4pNv2FMSu3BeUqU9QnOO_-RDXg5JfRnJHuKSU9pO5iViRL7JWpIsqPPAl381To3Zu1AzpuI4alnjwkuWtDtJ0n02Ac-tLkXyLHaS1M1jdSc_7tP1y-l4uqQeKHZWCoqYwRfUhj4iV0n_F7VXGCxikDhBy4cG3k"/>
+<div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black/80 to-transparent">
+<span class="text-xs font-label uppercase tracking-[0.3em] text-primary mb-2 block">Visualización de Campo</span>
+<p class="font-headline italic text-2xl text-on-surface">Entrenamiento Nocturno: Forjando Voluntad</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: El Proceso de Selección -->
+<section class="codex-card mt-32">
+<div class="codex-headline">
+<h2 class="text-6xl font-headline font-bold text-on-surface bg-background px-8 py-3 border-l-8 border-primary">El Proceso de Selección</h2>
+</div>
+<div class="bg-surface-container-low p-12 lg:p-20 pt-32 border border-white/5 shadow-2xl">
+<!-- Vertical Stack Layout to fix overlaps -->
+<div class="flex flex-col gap-24 relative"><!-- Step 1 -->
+<div class="space-y-8">
+<div class="relative w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden gold-border rounded-sm">
+<img alt="Día de reclutamiento militar en el Colegio de Guerra de Basgiath" class="w-full h-full object-cover grayscale contrast-125" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIZPQrQlKDTIIJnC138IcZD2IwAOlIIAFhH0qWEtlBpt4Agk38iakOG18DNOkHO4q_w0UwCi30cpRtFmliDDSzJG0o9xCcI-2zwLctIizV27i8c-lbEgCSEPNb6LUao6A_ii_k94ukYevXnj2Jyiouf7KM0ZGpeXUxbDA389wLOvUa7ZyewjxS2L1CZfW5Vm4afeSvucb4oq0fFLicXjPn0dr0m9fc8tQBf_QNBn6fSgc4qEKEdbcqewyjX6ydv3Yg9XCz7VCnTJU"/>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-background border border-primary flex items-center justify-center text-2xl font-headline font-bold text-primary shrink-0">1</div>
+<h3 class="text-3xl font-headline font-bold">El Reclutamiento</h3>
+</div>
+<p class="font-body text-zinc-400 text-lg leading-relaxed max-w-3xl">
+                                    Todo ciudadano de Navarre de veinte años debe presentarse. Aquellos que eligen el Cuadrante de Jinetes firman su sentencia o su destino.
+                                </p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="space-y-8">
+<div class="relative w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden gold-border rounded-sm">
+<img alt="El Parapeto" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0uhQZ7FZqyc8MqbVr-Iq5aa1bJm52l4YBCoBjYuGaZjOcMcMtpc9KlGz6GvT1HmWOs-eiF-_Vxm3_3Xyonxd2KQb-HrVvtCFDwNeUDY7yUU6uDmfDgF9Ql3DK5Ht0f7NJYg7mQ9-5rUrsP9mWupaXDQJGlae1M7IQg_zSejdG1Mvp9CXUxMQcxCc-O256m599mudZnbcFmz2as0bAWzLwGp3umi7hoRALFKyDkvswOUX8kAO57GMIFvhSp0"/>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-background border border-primary flex items-center justify-center text-2xl font-headline font-bold text-primary shrink-0">2</div>
+<h3 class="text-3xl font-headline font-bold">El Parapeto</h3>
+</div>
+<p class="font-body text-zinc-400 text-lg leading-relaxed max-w-3xl">
+                                    Un puente de piedra estrecho a cientos de metros de altura. Sin red, sin magia, solo tú y el abismo. El primer filtro de los débiles.
+                                </p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="space-y-8">
+<div class="relative w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden gold-border rounded-sm">
+<img alt="La Trilla" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0ugK4FTyjv4Esv3GYgQBcaXx4DI-KnNmVffVgxB775gXfX7xD0-Fpm6SJ-Ae76WPNN65scMhvyDt5lewrhhKiuqPRmkG0vgabug1mjdL3OEMwXnLPZYfVay5Sg1uqSXf7EPCS_aRC0LDdDPngkMxCuy76cjgNpiWAU9fhWgD1llKs7Ps07Prof8h7dwbd_txdzKPTTBBjLf9qfvja0RKnJuZTjBDKaTuGUsnQbPj0Gtgb1GPCGGpBnAbsQ"/>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary flex items-center justify-center text-2xl font-headline font-bold text-on-primary shadow-lg shadow-primary/20 shrink-0">3</div>
+<h3 class="text-3xl font-headline font-bold text-primary">La Trilla (Threshing)</h3>
+</div>
+<p class="font-body text-zinc-400 text-lg leading-relaxed max-w-3xl">
+                                    El momento final. Los dragones eligen a sus jinetes. Si ningún dragón te reclama, o si eres considerado indigno, no saldrás del Valle de la Muerte.
+                                </p>
+</div>
+</div></div>
+</div>
+</section>
+<!-- Call to Action Section -->
+<section class="text-center py-32 relative">
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden opacity-5">
+<span class="text-[25rem] font-headline font-black text-on-surface select-none">BASGIATH</span>
+</div>
+<div class="relative z-10 max-w-3xl mx-auto">
+<h2 class="text-5xl md:text-6xl font-headline font-bold text-on-surface mb-10 italic">¿Tu alma está lista para arder?</h2>
+<p class="font-body text-zinc-400 text-xl mb-16">
+                        Una vez iniciada la solicitud, no hay marcha atrás. El Colegio de Guerra no acepta renuncias, solo bajas. Asegúrate de que tu voluntad es absoluta.
+                    </p>
+<button class="px-16 py-6 bg-[#e9c349] text-[#3c2f00] font-label font-bold text-xl uppercase tracking-widest rounded-sm hover:scale-105 active:scale-95 transition-all shadow-[0_0_50px_rgba(233,195,73,0.3)] border-t border-white/40">
+                        SOLICITAR ADMISIÓN
+                    </button>
+</div>
+</section>
+</div>
+<!-- Footer -->
+<footer class="w-full py-16 px-12 flex flex-col md:flex-row justify-between items-center gap-8 bg-zinc-950 border-t border-white/5">
+<div class="flex flex-col items-center md:items-start">
+<p class="font-body text-sm uppercase tracking-widest text-zinc-600">
+                    © Año 1024. Propiedad del Cuadrante de Escribas. La supervivencia no está garantizada.
+                </p>
+</div>
+<div class="flex gap-12">
+<a class="font-label text-xs uppercase tracking-widest text-zinc-600 hover:text-amber-200 opacity-80 hover:opacity-100 transition-all" href="#">Código de Honor</a>
+<a class="font-label text-xs uppercase tracking-widest text-zinc-600 hover:text-amber-200 opacity-80 hover:opacity-100 transition-all" href="#">Registro de Bajas</a>
+<a class="font-label text-xs uppercase tracking-widest text-zinc-600 hover:text-amber-200 opacity-80 hover:opacity-100 transition-all" href="#">Contactar al Mando</a>
+</div>
+</footer>
+</main>
+<!-- Mobile Bottom Nav -->
+<script>
+        const drawerOpen = document.getElementById('drawer-open');
+        const drawerClose = document.getElementById('drawer-close');
+        const mobileDrawer = document.getElementById('mobile-drawer');
+        const drawerOverlay = document.getElementById('drawer-overlay');
+
+        function toggleDrawer() {
+            const isOpen = !mobileDrawer.classList.contains('translate-x-full');
+            if (isOpen) {
+                mobileDrawer.classList.add('translate-x-full');
+                drawerOverlay.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            } else {
+                mobileDrawer.classList.remove('translate-x-full');
+                drawerOverlay.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        drawerOpen.addEventListener('click', toggleDrawer);
+        drawerClose.addEventListener('click', toggleDrawer);
+        drawerOverlay.addEventListener('click', toggleDrawer);
+    </script>
+</body></html>

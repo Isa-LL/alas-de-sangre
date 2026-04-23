@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Noto+Serif:ital,wght@0,100..900;1,100..900&amp;family=Work+Sans:ital,wght@0,100..900;1,100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#000000",
+                        "on-surface": "#e5e2e1",
+                        "surface-container": "#131313",
+                        "on-secondary": "#690000",
+                        "surface-variant": "#201f1f",
+                        "outline": "#aa8984",
+                        "primary": "#e9c349",
+                        "metallic-gold": "#C5A059",
+                        "secondary": "#ffb4a8",
+                        "secondary-container": "#920703",
+                        "on-secondary-container": "#ff9a8a",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-container-low": "#1c1b1b",
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Newsreader", "serif"],
+                        "body": ["Noto Serif", "serif"],
+                        "label": ["Work Sans", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        *, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .codex-card-gradient {
+            background: linear-gradient(180deg, rgba(233, 195, 73, 0.05) 0%, rgba(14, 14, 14, 0) 100%);
+        }
+        .serif-nav {
+            font-family: 'Work Sans', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 0.1em;
+        }
+        .header-z {
+            z-index: 9999;
+        }
+        /* Mobile menu toggle behavior */
+        #mobile-menu-toggle:checked ~ #mobile-nav {
+            transform: translateX(0);
+        }
+        #mobile-menu-toggle:checked ~ #menu-overlay {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30 selection:text-primary">
+<!-- Unified Mobile Navigation from COMPONENTS_290 -->
+<header class="fixed top-0 w-full z-50 backdrop-blur-xl border-b border-white/5 bg-black/70">
+<div class="flex justify-between items-center px-6 h-16 w-full max-w-none">
+<!-- Leading Icon -->
+<div class="flex items-center">
+<span class="material-symbols-outlined text-[#e9c349]">shield</span>
+</div>
+<!-- Brand Logo Center -->
+<div class="flex items-center">
+<span class="font-['Newsreader'] font-bold tracking-tighter text-[#e9c349] uppercase text-lg">BASGIATH</span>
+</div>
+<!-- Trailing Menu Toggle Right -->
+<label class="cursor-pointer p-2 active:scale-95 duration-200" for="mobile-menu-toggle">
+<span class="material-symbols-outlined text-[#e9c349]">menu</span>
+</label>
+</div>
+<!-- Hidden Checkbox for Toggle Logic -->
+<input class="hidden" id="mobile-menu-toggle" type="checkbox"/>
+<!-- Menu Overlay -->
+<label class="hidden fixed inset-0 bg-black/60 z-[55]" for="mobile-menu-toggle" id="menu-overlay"></label>
+<!-- Navigation Drawer -->
+<nav class="fixed inset-y-0 right-0 z-[60] flex flex-col p-8 w-80 h-full shadow-[32px_0_64px_rgba(0,0,0,0.5)] transform translate-x-full transition-all duration-300 ease-in-out bg-black" id="mobile-nav" style="opacity: 1;">
+<div class="flex justify-between items-center mb-12">
+<span class="font-headline font-black text-[#e9c349] text-2xl uppercase tracking-tighter">THE ARCHIVIST</span>
+<label class="text-[#e9c349] cursor-pointer active:scale-95 duration-200" for="mobile-menu-toggle">
+<span class="material-symbols-outlined text-3xl">close</span>
+</label>
+</div>
+<div class="flex flex-col gap-6">
+<a class="flex items-center gap-4 text-zinc-500 font-label uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] transition-all duration-300" href="#">
+<span class="material-symbols-outlined">home</span>
+            INICIO
+        </a>
+<a class="flex items-center gap-4 text-zinc-500 font-label uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] transition-all duration-300" href="#">
+<span class="material-symbols-outlined">military_tech</span>
+            JINETES
+        </a>
+<a class="flex items-center gap-4 text-[#e9c349] font-headline italic text-2xl font-bold border-l-2 border-[#e9c349] pl-4 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">auto_awesome</span>
+            DRAGONES
+        </a>
+<a class="flex items-center gap-4 text-zinc-500 font-label uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] transition-all duration-300" href="#">
+<span class="material-symbols-outlined">map</span>
+            MAPAS
+        </a>
+<a class="flex items-center gap-4 text-zinc-500 font-label uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] transition-all duration-300" href="#">
+<span class="material-symbols-outlined">scroll</span>
+            CONVOCATORIA
+        </a>
+<a class="flex items-center gap-4 text-zinc-500 font-label uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] transition-all duration-300" href="#">
+<span class="material-symbols-outlined">payments</span>
+            EL PEAJE
+        </a>
+</div>
+<div class="mt-auto pt-8 border-t border-[#2a2a2a] flex justify-center gap-8">
+<span class="material-symbols-outlined text-[#e9c349] cursor-pointer hover:opacity-80 transition-opacity">search</span>
+<span class="material-symbols-outlined text-[#e9c349] cursor-pointer hover:opacity-80 transition-opacity">account_circle</span>
+</div>
+</nav>
+</header>
+<!-- Desktop Nav (Hidden on Mobile) -->
+<nav class="hidden md:flex fixed top-16 left-0 w-full bg-black/80 backdrop-blur-sm border-b border-white/5 items-center justify-center serif-nav gap-8 py-3 z-40">
+<a class="text-metallic-gold/70 hover:text-metallic-gold transition-all uppercase text-xs tracking-widest" href="#">INICIO</a>
+<a class="text-metallic-gold/70 hover:text-metallic-gold transition-all uppercase text-xs tracking-widest" href="#">JINETES</a>
+<a class="text-metallic-gold border-b border-metallic-gold uppercase text-xs tracking-widest" href="#">DRAGONES</a>
+<a class="text-metallic-gold/70 hover:text-metallic-gold transition-all uppercase text-xs tracking-widest" href="#">MAPAS</a>
+<a class="text-metallic-gold/70 hover:text-metallic-gold transition-all uppercase text-xs tracking-widest" href="#">CONVOCATORIA</a>
+<a class="text-metallic-gold/70 hover:text-metallic-gold transition-all uppercase text-xs tracking-widest" href="#">EL PEAJE</a>
+</nav>
+<main class="mx-auto pt-24 md:pt-48 px-6 pb-20 max-w-7xl relative">
+<!-- Header Section -->
+<section class="mb-12 relative block">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-8 relative">
+<div class="flex-1">
+<span class="font-label text-metallic-gold text-xs uppercase tracking-[0.3em] font-bold block mb-2">Documento Clasificado // Cuadrante de Escribas</span>
+<h1 class="text-4xl md:text-6xl font-headline text-metallic-gold mb-6 tracking-tight">Censo de Dragones: Archivos de Basgiath</h1>
+<p class="max-w-3xl text-zinc-400 font-body leading-relaxed text-lg">
+                    Registro oficial de los vínculos activos y las especificaciones de combate dentro del Colegio de Guerra de Basgiath. Estos datos son confidenciales y están bajo la protección del Sello de los Escribas.
+                </p>
+</div>
+<div class="flex flex-wrap gap-4 md:w-auto">
+<div class="bg-surface-container-high px-6 py-4 border-l-2 border-metallic-gold min-w-[140px] flex-grow md:flex-grow-0">
+<span class="block font-label text-[10px] text-zinc-500 uppercase font-bold tracking-tighter">Total Registrados</span>
+<span class="text-3xl font-headline text-on-surface">148</span>
+</div>
+<div class="bg-surface-container-high px-6 py-4 border-l-2 border-secondary-container min-w-[140px] flex-grow md:flex-grow-0">
+<span class="block font-label text-[10px] text-zinc-500 uppercase font-bold tracking-tighter">Nivel de Amenaza</span>
+<span class="text-3xl font-headline text-secondary-container">CRÍTICO</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Dragon Census Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+<!-- Tairn -->
+<article class="group bg-surface-container-low overflow-hidden rounded-sm border border-white/5 relative flex flex-col">
+<div class="relative w-full aspect-[4/5] overflow-hidden">
+<img alt="Tairn" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6h_aCyXEdvZcG6FL0NdNZAYfrJGW1D0dfpF190tnDWOhUp38l7Hr4gDuxUooT8W4dag2HHymqf3UOSRTPvpyYYRW9szK3vkBNVfD93-I3xR5Zoli6lwGEUcW4mKemJn81GwgTSZkbSpR8iOXlmMqqmtXAHIPhcJOeH8FzsJIpKiskRL3Auf_KG-EmAN6eVXshzBZe0fnieoAj9dpAZEOkuoB35LAnYow3TUP1777jGqnd9m_H0noRT_Bf5Jr3FYRC2YwpfNgNuv0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent"></div>
+<div class="absolute top-4 left-4">
+<span class="bg-metallic-gold text-background font-label text-[10px] font-bold px-3 py-1 uppercase tracking-widest shadow-lg">ÉPICO</span>
+</div>
+</div>
+<div class="p-6 bg-surface-container-low border-t border-white/5">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-3xl font-headline text-metallic-gold italic">Tairn</h3>
+<span class="material-symbols-outlined text-metallic-gold/50">shield</span>
+</div>
+<div class="space-y-4">
+<div class="flex gap-4 border-b border-white/5 pb-2">
+<div class="flex-1">
+<p class="font-label text-[10px] text-zinc-500 uppercase font-bold tracking-widest">Raza</p>
+<p class="text-sm">Black Morningstartail</p>
+</div>
+<div class="flex-1">
+<p class="font-label text-[10px] text-zinc-500 uppercase font-bold tracking-widest">Jinete</p>
+<p class="text-sm">Violet Sorrengail</p>
+</div>
+</div>
+<p class="text-sm text-zinc-400 font-body leading-snug">
+                        'Uno de los dragones más grandes y poderosos que existen, conocido por su inmensa fuerza y su lealtad inquebrantable.'
+                    </p>
+</div>
+</div>
+</article>
+<!-- Sgaeyl -->
+<article class="group bg-surface-container-low overflow-hidden rounded-sm border border-white/5 relative flex flex-col">
+<div class="relative w-full aspect-[4/5] overflow-hidden">
+<img alt="Sgaeyl" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLjEztCwowcN-lVJTkdt8KFHWRY84LC__iTHPjpZb4J2ij-dLumGUMc4pUk7djwEV03SwdluG6YyHsjCqzzVODTvexvJNOGkSrcxlKlwVVdKMsyYZM1bOX2eY8WGOs-O_0q70Jh4hL84HadUYArIGAg7oRkEKB-Q5wO2-0hzIBonHWoKNp9HzbBvxW6_YtYFaUWvBbkia9JFcPqKIcCIPfYOCWJ61XC1rKkp4c6nR_Ekx-MfspmsatHGd3w7NM4fzd6En3_XpxRDI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent"></div>
+<div class="absolute top-4 left-4">
+<span class="bg-secondary-container text-on-secondary-container font-label text-[10px] font-bold px-3 py-1 uppercase tracking-widest shadow-lg">LETAL</span>
+</div>
+</div>
+<div class="p-6 bg-surface-container-low border-t border-white/5">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-3xl font-headline text-metallic-gold italic">Sgaeyl</h3>
+<span class="material-symbols-outlined text-metallic-gold/50">auto_awesome</span>
+</div>
+<div class="space-y-4">
+<div class="flex gap-4 border-b border-white/5 pb-2">
+<div class="flex-1">
+<p class="font-label text-[10px] text-zinc-500 uppercase font-bold tracking-widest">Raza</p>
+<p class="text-sm">Blue Daggertail</p>
+</div>
+<div class="flex-1">
+<p class="font-label text-[10px] text-zinc-500 uppercase font-bold tracking-widest">Jinete</p>
+<p class="text-sm">Xaden Riorson</p>
+</div>
+</div>
+<p class="text-sm text-zinc-400 font-body leading-snug">
+                        'Un dragón letal y elegante con escamas afiladas y una reputación aterradora en la batalla.'
+                    </p>
+</div>
+</div>
+</article>
+<!-- Andarna -->
+<article class="group bg-surface-container-low overflow-hidden rounded-sm border border-white/5 relative flex flex-col">
+<div class="relative w-full aspect-[4/5] overflow-hidden">
+<img alt="Andarna" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwbpzJ-8cRBZ6fV8eTjtRqi3iVgXsz4kn_SGq-OYipQyuxExQcVXrlYt4t769Y1vASEqvh6YJhaqDyZGcuf3GJuX-BsOAfCW8X8ATrI-5ZIwAb8Z70cnJKpqQG4xIDnAc_0rhYwvQZNdb3ECgApPqQ74l-DlTn6pDuSpME5SeiAWg_mTZ7U8cHydBlKPIe2IZwsUKgxQqRy7GKIz1LmPxi0FivVb-o1qR86oryUDbpyJAGwkBXtMyLq8rAOX_yx2gI_jCDQstKUpg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent"></div>
+<div class="absolute top-4 left-4">
+<span class="bg-metallic-gold text-background font-label text-[10px] font-bold px-3 py-1 uppercase tracking-widest shadow-lg">ÚNICO</span>
+</div>
+</div>
+<div class="p-6 bg-surface-container-low border-t border-white/5">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-3xl font-headline text-metallic-gold italic">Andarna</h3>
+<span class="material-symbols-outlined text-metallic-gold/50">history_edu</span>
+</div>
+<div class="space-y-4">
+<div class="flex gap-4 border-b border-white/5 pb-2">
+<div class="flex-1">
+<p class="font-label text-[10px] text-zinc-500 uppercase font-bold tracking-widest">Raza</p>
+<p class="text-sm">Golden Feather-tail</p>
+</div>
+<div class="flex-1">
+<p class="font-label text-[10px] text-zinc-500 uppercase font-bold tracking-widest">Jinete</p>
+<p class="text-sm">Violet Sorrengail</p>
+</div>
+</div>
+<p class="text-sm text-zinc-400 font-body leading-snug">
+                        'Andarna es una dragona juvenil, la única de su clase vista en siglos. Su naturaleza y habilidades permanecen como un secreto de los Escribas.'
+                    </p>
+</div>
+</div>
+</article>
+<!-- Deigh -->
+<article class="group bg-surface-container-low overflow-hidden rounded-sm border border-white/5 relative flex flex-col">
+<div class="relative w-full aspect-[4/5] overflow-hidden">
+<img alt="Deigh" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnuxGLu706zzveYq_dW-ilnRI5-9TwHOb01yfjiE7sHVfRN0qtCA1TMoyLbN9rH_s66nRbP9_ryg7wRncSn-_Gq56l-QLpqoQyGoKptKexfMGjyPCUoeJsHTAAU3cm7GZbJPJBtSBknPzvOrof_7A0mYgCSkq2YE7oazFHJe7Q8cY5fLAHt2zbAn5XZirMQOQtexwENoeSgb8kaEmsnkB8ZvGyENsH-VjJjY-7xYi9OrH938eeupInM7iBBS42EsdT9X-PZwMoKrc"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent"></div>
+<div class="absolute top-4 left-4">
+<span class="bg-metallic-gold text-background font-label text-[10px] font-bold px-3 py-1 uppercase tracking-widest shadow-lg">REGISTRO #084</span>
+</div>
+</div>
+<div class="p-6 bg-surface-container-low border-t border-white/5">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-3xl font-headline text-metallic-gold italic">Deigh</h3>
+<span class="material-symbols-outlined text-metallic-gold/50">swords</span>
+</div>
+<div class="space-y-4">
+<div class="flex gap-4 border-b border-white/5 pb-2">
+<div class="flex-1">
+<p class="font-label text-[10px] text-zinc-500 uppercase font-bold tracking-widest">Raza</p>
+<p class="text-sm font-label uppercase">Green Swordtail</p>
+</div>
+<div class="flex-1">
+<p class="font-label text-[10px] text-zinc-500 uppercase font-bold tracking-widest">Jinete</p>
+<p class="text-sm font-label uppercase">Liam Mairi</p>
+</div>
+</div>
+<p class="text-sm text-zinc-400 font-body leading-snug">
+                        'Un combatiente disciplinado y ágil, conocido por sus maniobras a gran altura.'
+                    </p>
+</div>
+</div>
+</article>
+<!-- Teine -->
+<article class="group bg-surface-container-low overflow-hidden rounded-sm border border-white/5 relative flex flex-col">
+<div class="relative w-full aspect-[4/5] overflow-hidden">
+<img alt="Teine" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4lGoOF2e38myYbI9jK7nO4Pew5apCM02f8hnvK7DCg19lzBnZySNxwUXbuaZILMHrcFjhaWVzc_giL0gCQKaAyE3CgPu2r3gqtoqkK2JbuvVwnHhaGqb2o1X2yiB-dq0c_KRbQghwOpdgaY-Tg9mszckuTj73qR-Q8U_w7-CtL42uPhc7RcAiT-OcAxS2SvcEH4tu3oCQe_Sue5gk-2GljfzKChcNvHufug7mqxd_kl8rz8SsqTSg-e9BjXhZQdfa5K8sxzH-82M"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent"></div>
+<div class="absolute top-4 left-4">
+<span class="bg-metallic-gold text-background font-label text-[10px] font-bold px-3 py-1 uppercase tracking-widest shadow-lg">REGISTRO #029</span>
+</div>
+</div>
+<div class="p-6 bg-surface-container-low border-t border-white/5">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-3xl font-headline text-metallic-gold italic">Teine</h3>
+<span class="material-symbols-outlined text-metallic-gold/50">local_fire_department</span>
+</div>
+<div class="space-y-4">
+<div class="flex gap-4 border-b border-white/5 pb-2">
+<div class="flex-1">
+<p class="font-label text-[10px] text-zinc-500 uppercase font-bold tracking-widest">Raza</p>
+<p class="text-sm font-label uppercase">Red Swordtail</p>
+</div>
+<div class="flex-1">
+<p class="font-label text-[10px] text-zinc-500 uppercase font-bold tracking-widest">Jinete</p>
+<p class="text-sm font-label uppercase">Mira Sorrengail</p>
+</div>
+</div>
+<p class="text-sm text-zinc-400 font-body leading-snug">
+                        'Un dragón feroz y protector con un devastador aliento de fuego.'
+                    </p>
+</div>
+</div>
+</article>
+<!-- Cath -->
+<article class="group bg-surface-container-low overflow-hidden rounded-sm border border-white/5 relative flex flex-col">
+<div class="relative w-full aspect-[4/5] overflow-hidden">
+<img alt="Cath" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBF-KeonQ-9HujZiD8VOOgUl5Jd_u5xjkfmvWr8WUXxNvjYgZfLOmE4VlkD0SPSLYkmiMToFseubYPC6O1EakEul7vzOixFm1MTBr7gWikUcjG7_uiEJdjS9h2isKn22XO1g-2MRK1RrEXDwrpgaW8jm44BQ75ikz7OvSPc-LKS2217dTxMKOhpIXXi5icRfNXO01P_7YEIT-BEbjBI_fYt-Vgv7DNQ4aNe2q8UyfUskeOu6p9HSfuUwi4GwMH3h5bHqOB8uinDBQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent"></div>
+<div class="absolute top-4 left-4">
+<span class="bg-metallic-gold text-background font-label text-[10px] font-bold px-3 py-1 uppercase tracking-widest shadow-lg">REGISTRO #112</span>
+</div>
+</div>
+<div class="p-6 bg-surface-container-low border-t border-white/5">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-3xl font-headline text-metallic-gold italic">Cath</h3>
+<span class="material-symbols-outlined text-metallic-gold/50">tactic</span>
+</div>
+<div class="space-y-4">
+<div class="flex gap-4 border-b border-white/5 pb-2">
+<div class="flex-1">
+<p class="font-label text-[10px] text-zinc-500 uppercase font-bold tracking-widest">Raza</p>
+<p class="text-sm font-label uppercase">Red Swordtail</p>
+</div>
+<div class="flex-1">
+<p class="font-label text-[10px] text-zinc-500 uppercase font-bold tracking-widest">Jinete</p>
+<p class="text-sm font-label uppercase">Cianna</p>
+</div>
+</div>
+<p class="text-sm text-zinc-400 font-body leading-snug">
+                        'Perfil táctico en revisión. Despliegue activo en el frente de batalla.'
+                    </p>
+</div>
+</div>
+</article>
+</div>
+<!-- Mobile Button Example -->
+<div class="mt-12 flex justify-center md:hidden">
+<button class="w-[90%] bg-metallic-gold text-black font-bold py-4 rounded-sm uppercase tracking-widest">Ver más archivos</button>
+</div>
+</main>
+<footer class="w-full border-t border-white/5 mt-20 bg-black">
+<div class="flex flex-col md:flex-row justify-between items-center px-6 lg:px-12 py-10 gap-8 w-full max-w-[1920px] mx-auto">
+<div class="flex flex-col md:flex-row items-center gap-4 text-center md:text-left">
+<span class="text-metallic-gold font-headline font-extrabold uppercase tracking-tighter text-xl">Basgiath Archive</span>
+<span class="text-metallic-gold/20 hidden md:block">|</span>
+<p class="font-['Work_Sans'] uppercase tracking-[0.2em] text-[10px] font-bold text-metallic-gold/50 max-w-sm">
+                © VALE UNYARD ARCHIVAL DIVISION. DISSEMINATION OF CLASSIFIED MILITARY INTEL IS PUNISHABLE BY THE PEAJE.
+            </p>
+</div>
+<div class="flex flex-wrap justify-center gap-6 md:gap-8">
+<a class="font-['Work_Sans'] uppercase tracking-[0.2em] text-[10px] font-bold text-metallic-gold/50 hover:text-metallic-gold transition-colors" href="#">CONSCRIPT LAWS</a>
+<a class="font-['Work_Sans'] uppercase tracking-[0.2em] text-[10px] font-bold text-metallic-gold/50 hover:text-metallic-gold transition-colors" href="#">WAR COLLEGE BYLAWS</a>
+<a class="font-['Work_Sans'] uppercase tracking-[0.2em] text-[10px] font-bold text-metallic-gold/50 hover:text-metallic-gold transition-colors" href="#">SCRIBE QUARTER</a>
+</div>
+</div>
+</footer>
+</body></html>

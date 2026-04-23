@@ -1,0 +1,418 @@
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,700;0,800;1,400;1,700&amp;family=Noto+Serif:wght@400;700&amp;family=Work+Sans:wght@400;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#D4AF37", // Metallic Gold
+                        "on-primary": "#000000",
+                        "background": "#000000", // Pure Black
+                        "surface": "#0a0a0a",
+                        "outline-gold": "#C5A059",
+                        "military-red": "#93000a"
+                    },
+                    "fontFamily": {
+                        "headline": ["Newsreader", "serif"],
+                        "body": ["Noto Serif", "serif"],
+                        "label": ["Work Sans", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+        }
+        .wax-seal {
+            background: radial-gradient(circle at center, #b91c1c 0%, #7f1d1d 100%);
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5), 0 4px 6px rgba(0, 0, 0, 0.3);
+            border: 2px solid #991b1b
+        }
+        .character-card {
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: all 0.5s ease;
+        }
+        .character-card:hover {
+            border-color: rgba(212, 175, 55, 0.5);
+            background-color: #0d0d0d;
+        }
+        .portrait-container {
+            background-color: #050505;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .portrait-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 1s ease;
+        }
+        .character-card:hover .portrait-img {
+            transform: scale(1.02);
+        }
+        
+        /* Mobile Menu State */
+        #mobile-menu {
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(100%);
+        }
+        #mobile-menu.active {
+            transform: translateX(0);
+        }
+    </style>
+</head><body class="bg-background text-zinc-300 font-body selection:bg-primary/30 pt-16" data-mode="connect">
+<!-- Top Navigation Bar (Updated from COMPONENTS_290) -->
+<nav class="fixed top-0 w-full z-50 bg-[#0e0e0e]/70 dark:bg-zinc-950/70 backdrop-blur-xl h-16 flex items-center">
+<div class="flex justify-between items-center px-6 h-16 w-full max-w-none">
+<!-- Logo -->
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#e9c349] dark:text-amber-400 text-2xl">shield</span>
+<a class="font-headline font-bold tracking-tighter text-[#e9c349] dark:text-amber-400 text-lg uppercase" href="#">BASGIATH</a>
+</div>
+<!-- Desktop Navigation Links (Hidden on mobile) -->
+<div class="hidden md:flex items-center gap-6 text-[#e9c349] font-label text-xs uppercase tracking-widest">
+<a class="hover:text-white transition-colors" href="#">Inicio</a>
+<span class="text-white/20">|</span>
+<a class="hover:text-white transition-colors" href="#">Jinetes</a>
+<span class="text-white/20">|</span>
+<a class="hover:text-white transition-colors" href="#">Dragones</a>
+<span class="text-white/20">|</span>
+<a class="hover:text-white transition-colors" href="#">Mapas</a>
+<span class="text-white/20">|</span>
+<a class="hover:text-white transition-colors" href="#">CONVOCATORIA</a>
+<span class="text-white/20">|</span>
+<a class="hover:text-white transition-colors" href="#">El Peaje</a>
+</div>
+<!-- Right Icons & Mobile Menu Button -->
+<div class="flex items-center gap-4">
+<div class="hidden sm:flex items-center gap-4">
+<button class="text-[#e9c349] hover:text-white transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-2xl">search</span>
+</button>
+<button class="text-[#e9c349] hover:text-white transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-2xl">account_circle</span>
+</button>
+</div>
+<!-- Hamburger Icon (Trailing right) -->
+<button class="md:hidden text-[#e9c349] dark:text-amber-400 hover:text-white transition-colors active:scale-95 duration-200" onclick="toggleMobileMenu()">
+<span class="material-symbols-outlined text-2xl">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Mobile Navigation Overlay/Drawer (Updated from COMPONENTS_290) -->
+<div class="fixed inset-0 z-[60] pointer-events-none" id="mobile-menu-overlay">
+<div class="absolute inset-0 bg-black/80 opacity-0 transition-opacity duration-300 pointer-events-none" id="mobile-menu-bg" onclick="toggleMobileMenu()"></div>
+<div class="fixed inset-y-0 right-0 z-[60] flex flex-col p-8 h-full w-80 bg-[#0e0e0e] dark:bg-zinc-950 shadow-[32px_0_64px_rgba(0,0,0,0.5)] transition-all duration-300 ease-in-out pointer-events-auto" id="mobile-menu">
+<div class="flex justify-between items-start mb-8">
+<h2 class="font-headline italic text-2xl text-[#e9c349] dark:text-amber-400">THE ARCHIVIST</h2>
+<button class="text-[#e9c349] dark:text-amber-400 hover:text-white" onclick="toggleMobileMenu()">
+<span class="material-symbols-outlined text-3xl">close</span>
+</button>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-4 py-3 text-[#e9c349] dark:text-amber-400 font-bold border-l-2 border-[#e9c349] pl-4 hover:bg-zinc-900 transition-all" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label uppercase tracking-widest text-xs">INICIO</span>
+</a>
+<a class="flex items-center gap-4 py-3 text-zinc-500 font-['Work_Sans'] uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] transition-all" href="#">
+<span class="material-symbols-outlined">military_tech</span>
+<span>JINETES</span>
+</a>
+<a class="flex items-center gap-4 py-3 text-zinc-500 font-['Work_Sans'] uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] transition-all" href="#">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span>DRAGONES</span>
+</a>
+<a class="flex items-center gap-4 py-3 text-zinc-500 font-['Work_Sans'] uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] transition-all" href="#">
+<span class="material-symbols-outlined">map</span>
+<span>MAPAS</span>
+</a>
+<a class="flex items-center gap-4 py-3 text-zinc-500 font-['Work_Sans'] uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] transition-all" href="#">
+<span class="material-symbols-outlined">scroll</span>
+<span>CONVOCATORIA</span>
+</a>
+<a class="flex items-center gap-4 py-3 text-zinc-500 font-['Work_Sans'] uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] transition-all" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span>EL PEAJE</span>
+</a>
+</nav>
+<div class="mt-auto flex items-center justify-between pt-8 border-t border-zinc-900">
+<button class="text-[#e9c349]"><span class="material-symbols-outlined">search</span></button>
+<button class="text-[#e9c349]"><span class="material-symbols-outlined">account_circle</span></button>
+</div>
+</div>
+</div>
+<script>
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobile-menu');
+        const bg = document.getElementById('mobile-menu-bg');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        
+        if (menu.classList.contains('active')) {
+            menu.classList.remove('active');
+            bg.classList.add('opacity-0');
+            bg.classList.remove('opacity-100');
+            setTimeout(() => {
+                overlay.classList.add('pointer-events-none');
+                bg.classList.add('pointer-events-none');
+            }, 300);
+        } else {
+            overlay.classList.remove('pointer-events-none');
+            bg.classList.remove('pointer-events-none');
+            menu.classList.add('active');
+            bg.classList.remove('opacity-0');
+            bg.classList.add('opacity-100');
+        }
+    }
+</script>
+<div class="max-w-5xl mx-auto min-h-[1024px] flex flex-col p-6 md:p-12 border-x border-primary/10 bg-[#020202]">
+<!-- Document Header -->
+<header class="text-center mb-16 border-b border-primary/30 pb-10 relative">
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 bg-[#020202]">
+<span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<h1 class="font-headline text-4xl md:text-6xl font-extrabold text-primary uppercase tracking-tighter mb-4 mt-6">
+                REGISTRO DE BARRACONES
+            </h1>
+<h2 class="font-label text-xs md:text-sm uppercase tracking-[0.5em] text-primary/60">Colegio de Guerra de Basgiath</h2>
+<div class="mt-8 flex justify-center gap-12 text-[10px] font-label uppercase tracking-widest text-zinc-600">
+<span class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary/40 rounded-full"></span> EXPEDIENTE: #B-422-99</span>
+<span class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-military-red/60 rounded-full animate-pulse"></span> NIVEL DE ACCESO: RESTRINGIDO</span>
+</div>
+</header>
+<!-- Main Content -->
+<div class="space-y-24">
+<!-- Tier 1: Lead Characters -->
+<section class="grid grid-cols-1 gap-12">
+<!-- Xaden Riorson -->
+<article class="character-card flex flex-col md:flex-row bg-surface overflow-hidden">
+<div class="md:w-1/2 portrait-container aspect-[3/4] md:aspect-auto">
+<img alt="Xaden Riorson" class="portrait-img" src="https://lh3.googleusercontent.com/aida/ADBb0uiquDFTJeMgfHwNLHzVeHBsCFNGvGix3A3rluK5HasoEEhThIOYnOvEtCrVcsB9w7N5V3ZoN80dINH1IQLLv2IrPgOkVl_GIV3XSTSX_YOFPeRg7OwrLd87vqFrvwRkH0QP5-_7VMJ5NctXDJiu1zxDSHM7M7KsaLGMYIJp-00s8fv-ZSVbybKgTkcwoct-QC6twY2sDOWqFNoS1_F-hmbNwdp5Ma0DflHplDj24Z3u32_mC-quYlLOJP4"/>
+</div>
+<div class="md:w-1/2 p-8 md:p-10 flex flex-col justify-center">
+<div>
+<div class="flex justify-between items-start mb-4">
+<span class="text-primary font-label text-[10px] uppercase tracking-widest font-bold border border-primary/40 px-3 py-1">Líder de Ala</span>
+<span class="text-zinc-500 font-label text-[10px] uppercase tracking-widest italic">Estado: Activo</span>
+</div>
+<h3 class="font-headline text-4xl font-bold text-white mb-2">Xaden Riorson</h3>
+<p class="text-zinc-500 text-sm italic mb-8 border-l-2 border-primary/20 pl-4">Heredero de Aretia y jinete de tercer año. Su lealtad es tan oscura y profunda como sus sombras.</p>
+<div class="grid grid-cols-2 gap-y-6 gap-x-8 text-sm">
+<div>
+<p class="font-label text-[9px] uppercase tracking-widest text-primary/60 mb-1">Rango</p>
+<p class="font-body text-zinc-200">Tercer Año (Llama)</p>
+</div>
+<div>
+<p class="font-label text-[9px] uppercase tracking-widest text-primary/60 mb-1">Dragón</p>
+<p class="font-body text-zinc-200">Sgaeyl (Cola de Daga Azul)</p>
+</div>
+<div class="col-span-2">
+<p class="font-label text-[9px] uppercase tracking-widest text-primary/60 mb-1">Sello</p>
+<p class="font-headline text-primary text-xl font-bold italic">Manipulación de Sombras</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+<!-- Violet Sorrengail -->
+<article class="character-card flex flex-col md:flex-row-reverse bg-surface overflow-hidden">
+<div class="md:w-1/2 portrait-container aspect-[3/4] md:aspect-auto">
+<img alt="Violet Sorrengail" class="portrait-img" src="https://lh3.googleusercontent.com/aida/ADBb0uiZsz-dWPuyQyVN3zoFSOPmCdso4qzsj88JCVJwazxZjKDufHc-sw5Vhr-XYbbvTOZr6MeA83N5J6oUJgsMtCzr7UNFOwYJU7dPnFnzh4MRx6oaskdEmD-8zNwlVx4Os5jXyPFVhbfyJ1SCkxIiBrdJwdE5cyzQ4FLZycQpNv1AHjXQ5yWIqPhwxERtdN7oJLhPajyywby__NTA7U32awEZXX2oB8k6jcVToqHgviSdLZHTQyP6YgpqMXo"/>
+</div>
+<div class="md:w-1/2 p-8 md:p-10 flex flex-col justify-center text-right md:text-left">
+<div>
+<div class="flex justify-between items-start mb-4 flex-row-reverse md:flex-row">
+<span class="text-zinc-500 font-label text-[10px] uppercase tracking-widest italic">Estado: Activo</span>
+<span class="text-primary font-label text-[10px] uppercase tracking-widest font-bold border border-primary/40 px-3 py-1">Primer Año</span>
+</div>
+<h3 class="font-headline text-4xl font-bold text-white mb-2">Violet Sorrengail</h3>
+<p class="text-zinc-500 text-sm italic mb-8 border-r-2 md:border-r-0 md:border-l-2 border-primary/20 pr-4 md:pr-0 md:pl-4">La hija de la General, marcada por sus puntas plateadas. Posee un intelecto letal y un poder sin precedentes.</p>
+<div class="grid grid-cols-2 gap-y-6 gap-x-8 text-sm">
+<div>
+<p class="font-label text-[9px] uppercase tracking-widest text-primary/60 mb-1">Dragones</p>
+<p class="font-body text-zinc-200">Tairn &amp; Andarna</p>
+</div>
+<div>
+<p class="font-label text-[9px] uppercase tracking-widest text-primary/60 mb-1">Estado Físico</p>
+<p class="font-body text-zinc-200">Fragilidad Crónica (Compensada)</p>
+</div>
+<div class="col-span-2">
+<p class="font-label text-[9px] uppercase tracking-widest text-primary/60 mb-1">Sello</p>
+<p class="font-headline text-primary text-xl font-bold italic">Creación de Rayos</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+</section>
+<!-- Tier 2: Secondary Characters Grid -->
+<section>
+<div class="flex items-center gap-4 mb-10">
+<h4 class="font-label text-xs uppercase tracking-[0.4em] text-primary/60 whitespace-nowrap">Registro de Jinetes Complementario</h4>
+<div class="h-px bg-primary/20 w-full"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Dain Aetos -->
+<article class="character-card bg-surface flex flex-col h-full">
+<div class="portrait-container aspect-[16/10] border-b border-primary/10">
+<img alt="Dain Aetos" class="portrait-img" src="https://lh3.googleusercontent.com/aida/ADBb0ui34FU0sWfZJ-CMRk5R2dDQ9EDF99pUW_Bmuhna1pfSecQtsbzgB4aGMbGKr3Nk7YAXTukBwUwoku9EHezhx70x4qLvyJ2Prl1RAUPvk2nmR24xscBjVibognxbLx9gBS4wNM2L-iHVp6iuFtFaS4Y9ki1g3WRWkWB6cGW-VvXdmjiIWGoH93us7YdgmXhUEBpUGcKg50_Esc87-peicD1rPWKudh2EXYdWmiuC9XamJ7FbxhtAysj5_lc"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-center mb-4">
+<h5 class="font-headline text-2xl font-bold text-white">Dain Aetos</h5>
+<span class="text-[9px] uppercase tracking-tighter border border-primary/20 px-2 py-0.5 text-primary/70">Líder de Sección</span>
+</div>
+<p class="text-zinc-500 text-xs italic mb-6">Obsesionado con las reglas y la seguridad de Violet, su rectitud a menudo nubla su juicio.</p>
+<div class="mt-auto space-y-3 text-[11px]">
+<div class="flex justify-between border-b border-primary/5 pb-1">
+<span class="font-label uppercase text-zinc-600 tracking-widest">Sello</span>
+<span class="text-primary italic font-bold">Lectura de Memoria</span>
+</div>
+<div class="flex justify-between border-b border-primary/5 pb-1">
+<span class="font-label uppercase text-zinc-600 tracking-widest">Dragón</span>
+<span class="text-zinc-300">Cath (Cola de Daga Roja)</span>
+</div>
+<div class="flex justify-between">
+<span class="font-label uppercase text-zinc-600 tracking-widest">Año</span>
+<span class="text-zinc-300">Segundo Año</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Rhiannon Matthias -->
+<article class="character-card bg-surface flex flex-col h-full">
+<div class="portrait-container aspect-[16/10] border-b border-primary/10">
+<img alt="Rhiannon Matthias" class="portrait-img" src="https://lh3.googleusercontent.com/aida/ADBb0ugZtrrxhr3Bbx9K2RfPivTBwJ484z72Q67VEdC2vz4RFOv8Watqc21oOihBq0gUhFVrcTn20A-qTN9jRRVnQ_WsInFYY6sApW190xIxs-FctjTCh4Ld1iRHii_qngZDsk0zlbWoeyhRRCxS10Ntk41zOqM84Rk7UXsEUPqmg22HZvwfzliu9IqNBmeqniQ9PLlX22F3S0y3Ac08qW8ilcKas97z5-G2Nua8jknf8mhcZLjyRGztroaiKrE"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-center mb-4">
+<h5 class="font-headline text-2xl font-bold text-white">Rhiannon Matthias</h5>
+<span class="text-[9px] uppercase tracking-tighter border border-primary/20 px-2 py-0.5 text-zinc-500">Aliada de Confianza</span>
+</div>
+<p class="text-zinc-500 text-xs italic mb-6">La mejor amiga de Violet. Su lealtad y capacidad física la convierten en un pilar del escuadrón.</p>
+<div class="mt-auto space-y-3 text-[11px]">
+<div class="flex justify-between border-b border-primary/5 pb-1">
+<span class="font-label uppercase text-zinc-600 tracking-widest">Sello</span>
+<span class="text-primary italic font-bold">Telequinesis</span>
+</div>
+<div class="flex justify-between border-b border-primary/5 pb-1">
+<span class="font-label uppercase text-zinc-600 tracking-widest">Dragón</span>
+<span class="text-zinc-300">Feirn (Cola de Daga Verde)</span>
+</div>
+<div class="flex justify-between">
+<span class="font-label uppercase text-zinc-600 tracking-widest">Año</span>
+<span class="text-zinc-300">Segundo Año</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Ridoc -->
+<article class="character-card bg-surface flex flex-col h-full">
+<div class="portrait-container aspect-[16/10] border-b border-primary/10">
+<img alt="Ridoc" class="portrait-img" src="https://lh3.googleusercontent.com/aida/ADBb0ug4w0P0p2XoUcx3C3qyRyvPWSWrttTDKsyr-EqZ90moMwmt1fdZjotfGPuEBNwh0Wngg6KR8C1_r-3LCkv3Hk3IbMHC2xy6p0Yj3ylhOrB2chnhIxGy9iY1qRhEw4XA8QxWPyUg5wjpa0NyTfhjvZ_hgR-7AUxc_oLtveHyZHCJ5uksvhoGVt3RjwduoRpESZOY7TZNXqAj6uyucZAKCBxI0L06RXa9Bb9-yuCPBqD2P_gJJjmTdhL2Nho"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-center mb-4">
+<h5 class="font-headline text-2xl font-bold text-white">Ridoc</h5>
+<span class="text-[9px] uppercase tracking-tighter border border-primary/20 px-2 py-0.5 text-yellow-600/70 font-bold">Estado: Herido</span>
+</div>
+<p class="text-zinc-500 text-xs italic mb-6">Conocido por su humor sarcástico e ingenio. Un superviviente nato bajo cualquier circunstancia.</p>
+<div class="mt-auto space-y-3 text-[11px]">
+<div class="flex justify-between border-b border-primary/5 pb-1">
+<span class="font-label uppercase text-zinc-600 tracking-widest">Sello</span>
+<span class="text-primary italic font-bold">Manipulación de Hielo</span>
+</div>
+<div class="flex justify-between border-b border-primary/5 pb-1">
+<span class="font-label uppercase text-zinc-600 tracking-widest">Dragón</span>
+<span class="text-zinc-300">Slainte (Cola de Daga Marrón)</span>
+</div>
+<div class="flex justify-between">
+<span class="font-label uppercase text-zinc-600 tracking-widest">Año</span>
+<span class="text-zinc-300">Segundo Año</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Imogen -->
+<article class="character-card bg-surface flex flex-col h-full">
+<div class="portrait-container aspect-[16/10] border-b border-primary/10">
+<img alt="Imogen" class="portrait-img" src="https://lh3.googleusercontent.com/aida/ADBb0ugMxWgc8kPMSfljx8Lp39PAGjD4FGc_8hQCFDq18GT3i4RrUdXW68q-nyvH2USBaNVrgs4CpNQDmyNj9yMBMBz-SJzza1I6WCFrRpOimKhv01NmZ70-5nFvVQzciqU28-sdEKhFNHACGFVRcqj9j24E39nJ6jzHotQwDZyTzm0hEgmtRLZys3IxZhc9vXwV5dfcSUsB9vs0TT6WpHXXL5VHxmrrSEN71t08wfCmOOrZ0WOE59VRANW3cMg"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-center mb-4">
+<h5 class="font-headline text-2xl font-bold text-white">Imogen</h5>
+<span class="text-[9px] uppercase tracking-tighter border border-primary/20 px-2 py-0.5 text-zinc-500">Estratega Táctica</span>
+</div>
+<p class="text-zinc-500 text-xs italic mb-6">Dura, rápida y letal. Su cabello rosa es tan vibrante como su habilidad en el combate cuerpo a cuerpo.</p>
+<div class="mt-auto space-y-3 text-[11px]">
+<div class="flex justify-between border-b border-primary/5 pb-1">
+<span class="font-label uppercase text-zinc-600 tracking-widest">Sello</span>
+<span class="text-primary italic font-bold">Borrado de Memoria</span>
+</div>
+<div class="flex justify-between border-b border-primary/5 pb-1">
+<span class="font-label uppercase text-zinc-600 tracking-widest">Dragón</span>
+<span class="text-zinc-300">Gladius (Cola de Maza Negra)</span>
+</div>
+<div class="flex justify-between">
+<span class="font-label uppercase text-zinc-600 tracking-widest">Año</span>
+<span class="text-zinc-300">Segundo Año</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Sawyer -->
+<article class="character-card bg-surface flex flex-col h-full md:col-span-2">
+<div class="flex flex-col md:flex-row">
+<div class="md:w-1/3 portrait-container aspect-square md:aspect-auto border-b md:border-b-0 md:border-r border-primary/10">
+<img alt="Sawyer" class="portrait-img" src="https://lh3.googleusercontent.com/aida/ADBb0uhcMg7TDKuvTqG0dF1vqwDohF_sqJESHV4r4gwFlTib0dMRiS7vV_VxvOE-h5YRtlwfFsyvFUZTdc8EdiNCF4rx6K6kMeQ5mKnVhkwvtYmQZF7QiZ1wbjWIU8_gNeWbRRBlLBOwLH4g12cMo_MK9BqUuG-HssNdLEnMujx66Vs1DnFqNM-aQ7jh8CKKJ1tUVWCY3G5L6PvdgxthsuqvQf7R1nIQrTzApGMIn58eXnbPhqZnm5QTr0asjg"/>
+</div>
+<div class="md:w-2/3 p-6 flex flex-col">
+<div class="flex justify-between items-center mb-4">
+<h5 class="font-headline text-2xl font-bold text-white">Sawyer</h5>
+<span class="text-[9px] uppercase tracking-tighter border border-primary/20 px-2 py-0.5 text-zinc-500">Especialista</span>
+</div>
+<p class="text-zinc-500 text-xs italic mb-8">El pragmático del grupo. Su habilidad con los metales es crucial para la reparación de equipos en el campo.</p>
+<div class="mt-auto grid grid-cols-2 gap-4 text-[11px]">
+<div class="space-y-3">
+<div class="flex flex-col border-b border-primary/5 pb-1">
+<span class="font-label uppercase text-zinc-600 tracking-widest text-[9px]">Sello</span>
+<span class="text-primary italic font-bold">Metalurgia</span>
+</div>
+<div class="flex flex-col border-b border-primary/5 pb-1">
+<span class="font-label uppercase text-zinc-600 tracking-widest text-[9px]">Año de Formación</span>
+<span class="text-zinc-300">Segundo Año</span>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex flex-col border-b border-primary/5 pb-1">
+<span class="font-label uppercase text-zinc-600 tracking-widest text-[9px]">Vinculación Dragón</span>
+<span class="text-zinc-300">Bakari (Cola de Escorpión Roja)</span>
+</div>
+<div class="flex flex-col border-b border-primary/5 pb-1">
+<span class="font-label uppercase text-zinc-600 tracking-widest text-[9px]">Especialidad</span>
+<span class="text-zinc-300">Armamento &amp; Defensa</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+</div>
+</section>
+</div>
+<!-- Document Footer & Seal -->
+<footer class="mt-32 mb-12 flex flex-col items-center">
+<div class="wax-seal w-28 h-28 rounded-full flex items-center justify-center p-4 text-center border-4 border-[#5a0000] rotate-[-5deg]">
+<p class="text-[10px] font-headline font-black text-white/80 leading-none uppercase tracking-tighter">Aprobado por la<br/>Comandancia<br/>General</p>
+</div>
+<div class="mt-10 text-center space-y-3">
+<p class="font-label text-[9px] uppercase tracking-[0.4em] text-zinc-600">
+                    Propiedad Privada</p></div></footer></div>```</body></html>

@@ -1,0 +1,283 @@
+<html class="dark" lang="es"><head></head><body class="bg-background text-on-surface font-body selection:bg-primary/30 selection:text-primary relative block">```html
+
+
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EL PEAJE: EL COMPACTO DE LOS JINETES - Basgiath Archive</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Noto+Serif:ital,wght@0,100..900;1,100..900&amp;family=Work+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary": "#c8c6c6",
+                        "on-tertiary": "#303030",
+                        "on-surface-variant": "#e3beb8",
+                        "on-secondary-fixed": "#410000",
+                        "error": "#ffb4ab",
+                        "secondary-fixed-dim": "#ffb4a8",
+                        "on-primary-container": "#d0ab33",
+                        "on-secondary": "#690000",
+                        "inverse-surface": "#e5e2e1",
+                        "on-secondary-container": "#ff9a8a",
+                        "error-container": "#93000a",
+                        "tertiary-container": "#424242",
+                        "on-background": "#e5e2e1",
+                        "surface-bright": "#3a3939",
+                        "surface": "#000000",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "surface-container-high": "#1a1a1a",
+                        "surface-tint": "#e9c349",
+                        "primary-container": "#524000",
+                        "on-tertiary-container": "#b0aeae",
+                        "tertiary-fixed-dim": "#c8c6c6",
+                        "primary-fixed-dim": "#e9c349",
+                        "on-surface": "#e5e2e1",
+                        "secondary-container": "#920703",
+                        "primary": "#e9c349",
+                        "background": "#000000",
+                        "primary-fixed": "#ffe088",
+                        "on-error": "#690005",
+                        "on-primary-fixed": "#241a00",
+                        "on-primary": "#3c2f00",
+                        "secondary": "#ffb4a8",
+                        "surface-container-lowest": "#000000",
+                        "on-primary-fixed-variant": "#574500",
+                        "inverse-primary": "#735c00",
+                        "tertiary-fixed": "#e4e2e2",
+                        "surface-variant": "#222222",
+                        "surface-container-low": "#111111",
+                        "on-secondary-fixed-variant": "#920703",
+                        "on-error-container": "#ffdad6",
+                        "inverse-on-surface": "#313030",
+                        "surface-dim": "#000000",
+                        "surface-container": "#131313",
+                        "outline": "#aa8984",
+                        "on-tertiary-fixed": "#1b1c1c",
+                        "outline-variant": "#5a403c",
+                        "surface-container-highest": "#1f1f1f",
+                        "secondary-fixed": "#ffdad4",
+                        "metallic-gold": "#C5A059"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "4px",
+                        "lg": "4px",
+                        "xl": "8px",
+                        "full": "12px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Newsreader"],
+                        "body": ["Noto Serif"],
+                        "label": ["Work Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .textured-bg {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.05;
+        }
+        body {
+            font-size: 1.2rem;
+        }
+        #mobile-menu-overlay {
+            display: none;
+        }
+        #mobile-menu-overlay.active {
+            display: block;
+        }
+        #drawer {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        #drawer.active {
+            transform: translateX(0);
+        }
+    </style>
+<header class="bg-[#0e0e0e]/70 dark:bg-zinc-950/70 backdrop-blur-xl fixed top-0 w-full z-50 h-16 border-b border-[#2a2a2a] dark:border-zinc-800">
+<div class="flex justify-between items-center px-6 h-full w-full max-w-none">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#e9c349] dark:text-amber-400">shield</span>
+<div class="font-['Newsreader'] font-bold tracking-tighter text-[#e9c349] dark:text-amber-400 text-lg uppercase">BASGIATH</div>
+</div>
+<!-- Desktop Nav -->
+<nav class="hidden lg:flex flex-1 justify-center items-center gap-8 px-10">
+<a class="font-label text-xs font-medium tracking-widest text-zinc-400 hover:text-[#e9c349] transition-colors uppercase" href="#">INICIO</a>
+<a class="font-label text-xs font-medium tracking-widest text-zinc-400 hover:text-[#e9c349] transition-colors uppercase" href="#">JINETES</a>
+<a class="font-label text-xs font-medium tracking-widest text-zinc-400 hover:text-[#e9c349] transition-colors uppercase" href="#">DRAGONES</a>
+<a class="font-label text-xs font-medium tracking-widest text-zinc-400 hover:text-[#e9c349] transition-colors uppercase" href="#">MAPAS</a>
+<a class="font-label text-xs font-medium tracking-widest text-zinc-400 hover:text-[#e9c349] transition-colors uppercase" href="#">CONVOCATORIA</a>
+<a class="font-label text-xs font-medium tracking-widest text-[#e9c349] dark:text-amber-400 border-b border-[#e9c349] uppercase" href="#">EL PEAJE</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-[#e9c349] dark:text-amber-400 hover:opacity-80 transition-opacity active:scale-95 duration-200">search</button>
+<button class="material-symbols-outlined text-[#e9c349] dark:text-amber-400 hover:opacity-80 transition-opacity active:scale-95 duration-200 lg:hidden" onclick="toggleDrawer()">menu</button>
+<button class="hidden lg:block material-symbols-outlined text-[#e9c349] dark:text-amber-400 hover:opacity-80 transition-opacity active:scale-95 duration-200">person</button>
+</div>
+</div>
+</header>
+<!-- Mobile Navigation Drawer Overlay -->
+<div class="fixed inset-0 bg-black/60 z-[55] backdrop-blur-sm" id="mobile-menu-overlay" onclick="toggleDrawer()"></div>
+<!-- Navigation Drawer -->
+<nav class="fixed inset-y-0 right-0 z-[60] flex flex-col p-8 bg-[#0e0e0e] dark:bg-zinc-950 h-full w-80 rounded-l-sm shadow-[32px_0_64px_rgba(0,0,0,0.5)] border-l border-[#2a2a2a] dark:border-zinc-900" id="drawer">
+<div class="flex justify-between items-center mb-10">
+<div class="font-['Newsreader'] italic text-2xl font-black text-[#e9c349]">THE ARCHIVIST</div>
+<button class="material-symbols-outlined text-zinc-500" onclick="toggleDrawer()">close</button>
+</div>
+<div class="flex flex-col gap-6">
+<a class="flex items-center gap-4 text-zinc-500 font-['Work_Sans'] uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] transition-all duration-300 py-2" href="#">
+<span class="material-symbols-outlined">home</span> INICIO
+</a>
+<a class="flex items-center gap-4 text-zinc-500 font-['Work_Sans'] uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] transition-all duration-300 py-2" href="#">
+<span class="material-symbols-outlined">military_tech</span> JINETES
+</a>
+<a class="flex items-center gap-4 text-zinc-500 font-['Work_Sans'] uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] transition-all duration-300 py-2" href="#">
+<span class="material-symbols-outlined">auto_awesome</span> DRAGONES
+</a>
+<a class="flex items-center gap-4 text-zinc-500 font-['Work_Sans'] uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] transition-all duration-300 py-2" href="#">
+<span class="material-symbols-outlined">map</span> MAPAS
+</a>
+<a class="flex items-center gap-4 text-zinc-500 font-['Work_Sans'] uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] transition-all duration-300 py-2" href="#">
+<span class="material-symbols-outlined">scroll</span> CONVOCATORIA
+</a>
+<a class="flex items-center gap-4 text-[#e9c349] dark:text-amber-400 font-bold border-l-2 border-[#e9c349] pl-4 transition-all duration-300 py-2" href="#">
+<span class="material-symbols-outlined">payments</span> EL PEAJE
+</a>
+</div>
+</nav>
+<script>
+    function toggleDrawer() {
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const drawer = document.getElementById('drawer');
+        overlay.classList.toggle('active');
+        drawer.classList.toggle('active');
+    }
+</script>
+<div class="min-h-[1024px] pt-24 pb-20 relative block">
+<main class="max-w-4xl mx-auto px-6 md:px-12 py-16 relative block bg-surface-container-lowest">
+<div class="absolute inset-0 textured-bg pointer-events-none"></div>
+<div class="relative z-10 text-center mb-16">
+<h3 class="font-label text-xs uppercase tracking-[0.5em] text-primary mb-4">Official Decree No. 001</h3>
+<h1 class="font-headline text-5xl md:text-7xl text-on-surface font-extrabold tracking-tighter leading-none mb-6">
+                EL PEAJE: <br/>
+<span class="text-primary italic">EL COMPACTO DE LOS JINETES</span>
+</h1>
+<div class="w-24 h-px bg-primary mx-auto mb-10"></div>
+<p class="font-body text-xl md:text-2xl text-on-surface-variant max-w-2xl mx-auto italic leading-relaxed opacity-90">
+                "Que se sepa en todo el Cuadrante que este pacto no es de palabras, sino de esencia. Donde uno termina, el otro comienza."
+            </p>
+</div>
+<div class="space-y-16 max-w-3xl mx-auto relative z-10">
+<!-- Preamble Section -->
+<section class="bg-surface-container-low p-8 md:p-12 relative block border border-primary/10">
+<div class="inline-block bg-primary text-on-primary font-headline text-2xl px-6 py-2 shadow-xl mb-8">
+                    PREÁMBULO
+                </div>
+<p class="text-lg leading-relaxed text-on-surface first-letter:text-5xl first-letter:font-headline first-letter:text-primary first-letter:mr-3 first-letter:float-left first-letter:mt-1">
+                    El contrato entre un Jinete y su Dragón es la piedra angular de Basgiath. No existe ley superior, ni vínculo más profundo. Este documento establece los términos de 'El Peaje'—el costo inevitable que se cobra a aquellos que se atreven a montar a los señores del cielo. El Colegio de Guerra de Basgiath, bajo la autoridad del Cuadrante de Escribas, ratifica estas palabras como ley absoluta e inquebrantable. Ignorar estos términos es aceptar la muerte inmediata antes de que la llama toque tu piel.
+                </p>
+</section>
+<!-- Article I -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+<div class="bg-surface-container-high p-8 border-l-2 border-primary">
+<h4 class="font-headline text-3xl text-primary mb-2 italic">Artículo I</h4>
+<h5 class="font-label text-xs uppercase tracking-widest text-on-surface opacity-50 mb-6">El Vínculo de Sangre</h5>
+<p class="text-sm leading-relaxed text-on-surface">
+                        El vínculo es sellado durante <strong>La Trilla</strong>, una fusión psíquica y física que no conoce distancias. El jinete hereda la fuerza del dragón, pero también su vulnerabilidad. La muerte de uno suele significar la muerte del otro debido a una fulminante <strong>agonía mental</strong>. La sangre compartida es la única moneda de cambio en este pacto.
+                    </p>
+</div>
+<div class="rounded-sm overflow-hidden border border-primary/20 bg-surface-container">
+<img alt="Ancient parchment illustration of La Trilla" class="max-w-full h-auto block" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCfY5qBJU-YUOWGvsWvvNK_NezM6uJECes4v3GSTENq-J1lt_QfH8pdNnFkwjNJSfPrHuPYJcBmjsrVC9a-1KlRE0GqV37UFv6KDTGzKPJsZ1BoktqOidDiKUGK59zU0sZkvcZUF3wDFcfBq2x6lFEr0c3BhAGx65m4fARXkKvOOr4eIi_v2FlklOgmNqgcoVubLr-0c-dlukApqkK3L15yfdKF2QcOxT22SBNj8bH2ia_CNt6bQNtlXuz3RscFdDvCeIG8oBxHcE"/>
+</div>
+</section>
+<!-- Article II -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+<div class="order-2 md:order-1 rounded-sm overflow-hidden border border-secondary/20 bg-surface-container">
+<img alt="Ornate illustration of a dragon's eye" class="max-w-full h-auto block" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDC40z6L71EPTQnBO3YAyi3Y1Xo1PPPIFDX8UXHJ7Kk6yx1vVgiQjdlvqQcQwJ11YN0FzkIjTfcjg4-4wKM_bYYev0uTuhN2mYKSINkHfVN2d2zs39dVzsQRnAWibNySm0eb7-73K_8fFTXLWVIhaHVPTIzjbHfveQv1CzszUq9Ikrf7AlSH-ON9PZPUmR6tXe2yuMj1J522AGUGbnYvrLPTcLotMoXKx-XXbx8w-Qk9FbouoJOscxVsraNpuZEri1KWM1paE3EIxg"/>
+</div>
+<div class="order-1 md:order-2 bg-surface-container-high p-8 border-l-2 border-secondary">
+<h4 class="font-headline text-3xl text-secondary mb-2 italic">Artículo II</h4>
+<h5 class="font-label text-xs uppercase tracking-widest text-on-surface opacity-50 mb-6">El Sacrificio Obligatorio</h5>
+<p class="text-sm leading-relaxed text-on-surface">
+                        Cada gramo de poder entregado por el dragón debe ser equilibrado por la voluntad del jinete. El sacrificio no es solo físico; es la pérdida de la individualidad. Tu vida ya no te pertenece; pertenece al ala, al escuadrón, al reino.
+                    </p>
+</div>
+</section>
+<!-- Central Quote -->
+<section class="py-12 text-center border-y border-primary/10">
+<blockquote class="font-headline text-3xl md:text-4xl text-on-surface italic leading-tight">
+                    "Un dragón sin su jinete es una tragedia. <br class="hidden md:block"/>
+                    Un jinete sin su dragón es un cadáver."
+                </blockquote>
+</section>
+<!-- Article III -->
+<section class="bg-surface-container p-8 md:p-12 border border-primary/10 relative block">
+<div class="flex flex-col gap-10">
+<div class="w-full">
+<h4 class="font-headline text-4xl text-primary mb-6">Artículo III: <br/><span class="text-on-surface italic font-light">Las Leyes del Cuadrante</span></h4>
+<div class="space-y-4 text-sm leading-relaxed mb-8 text-on-surface">
+<p>Ningún jinete podrá elevarse por encima de la ley del Colegio. El Peaje incluye la obediencia total a las órdenes del Cuadrante de Escribas en lo que respecta al registro histórico del vínculo.</p>
+<p class="font-bold text-primary border-l-2 border-primary pl-4 py-1 italic">"Cualquier debilidad en la manifestation del Sello de Poder (Signet) será reportada inmediatamente a la Comandancia."</p>
+</div>
+<ul class="space-y-4 mb-8">
+<li class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">military_tech</span>
+<p class="text-[10px] uppercase tracking-widest opacity-60">Lealtad absoluta a la Cadena de Mando.</p>
+</li>
+<li class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">ink_highlighter</span>
+<p class="text-[10px] uppercase tracking-widest opacity-60">Registro veraz de todas las manifestaciones del Signet.</p>
+</li>
+</ul>
+</div>
+<div class="flex flex-col items-center gap-4 w-full">
+<div class="rounded-sm overflow-hidden border border-primary/20 shadow-2xl bg-surface-container w-full max-w-2xl">
+<img alt="Cinematic illustration of lightning" class="w-full h-auto block object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0ugbNS2dzURIttppza_uzI3gWA5vOgAKta-Cp1QkKI7ZrNy37t407ql1avnFDbrvqmnSMcYrhNq3xsvpii5UCKpvhTF-RzbkAKzgawCB-WHNS0e0ln2ceWWWwIFMAiFpdGp3MUEM_AsenTWP4R90c1mCHU6NJkK1YT32MsVEtFfZqIFdMm_HGzDbgOPxywhNXLnbgz1nVNeLIcC90MD_IcIcXQV5ReM2e3KF5O44UGGoqBHNeAtBjKsKH-U"/>
+</div>
+<p class="font-label text-[10px] uppercase tracking-widest opacity-40 italic">Manifestación del Sello de Poder (Signet) - Registro Oficial</p>
+</div>
+</div>
+</section>
+<!-- Closing Section -->
+<section class="space-y-12 py-12">
+<div class="relative block">
+<p class="font-body text-lg leading-relaxed text-on-surface">
+                        Es de conocimiento común entre los eruditos y guerreros por igual que la interdependencia entre las dos especies es absoluta. Un jinete que pierde a su compañero dragón sufre una agonía mental tan profunda que la muerte suele ser la única liberación compasiva. La energía que fluye a través del vínculo sostiene el corazón humano; sin ella, el órgano simplemente deja de latir.
+                    </p>
+</div>
+<div class="relative block">
+<p class="font-body text-lg leading-relaxed text-on-surface text-right">
+                        Inversamente, un dragón sin su jinete se convierte en un remolino de fuego y furia sin dirección. Aunque su vida física continúe, su alma queda marcada por el fracaso de la conexión. Es una tragedia que resuena en las cumbres de las montañas, un recordatorio de que incluso las criaturas más poderosas son vulnerables a la pérdida.
+                    </p>
+</div>
+<div class="flex justify-center mt-12">
+<button class="w-[90%] md:w-auto bg-primary text-on-primary font-label uppercase tracking-widest px-10 py-4 hover:brightness-110 transition-all">Sellar Compromiso</button>
+</div>
+</section>
+</div>
+</main>
+</div>
+<footer class="w-full border-t border-[#2a2a2a] bg-[#0e0e0e]">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 py-10 gap-6 w-full max-w-[1920px] mx-auto">
+<div class="flex flex-col gap-2">
+<div class="text-[#e9c349] font-black font-headline text-2xl text-center md:text-left">BASGIATH WAR COLLEGE</div>
+<p class="font-label uppercase tracking-[0.2em] text-[10px] font-bold text-[#920703] text-center md:text-left">
+                © VALE UNYARD ARCHIVAL DIVISION. DISSEMINATION OF CLASSIFIED MILITARY INTEL IS PUNISHABLE BY THE PEAJE.
+            </p>
+</div>
+<div class="flex gap-8 flex-wrap justify-center">
+<a class="font-label uppercase tracking-[0.2em] text-[10px] font-bold text-[#e5e2e1]/50 hover:text-[#e9c349] transition-colors" href="#">CONSCRIPT LAWS</a>
+<a class="font-label uppercase tracking-[0.2em] text-[10px] font-bold text-[#e5e2e1]/50 hover:text-[#e9c349] transition-colors" href="#">WAR COLLEGE BYLAWS</a>
+<a class="font-label uppercase tracking-[0.2em] text-[10px] font-bold text-[#e5e2e1]/50 hover:text-[#e9c349] transition-colors" href="#">SCRIBE QUARTER</a>
+</div>
+</div>
+</footer>
+```</body></html>

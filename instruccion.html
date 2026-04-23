@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Basgiath Codex - Programa de Instrucción</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Noto+Serif:ital,wght@0,100..900;1,100..900&amp;family=Work+Sans:ital,wght@0,100..900;1,100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#131313",
+                        "surface-dim": "#131313",
+                        "error-container": "#93000a",
+                        "tertiary-fixed": "#e4e2e2",
+                        "surface-container-lowest": "#0e0e0e",
+                        "secondary": "#ffb4a8",
+                        "primary-fixed": "#ffe088",
+                        "primary-fixed-dim": "#e9c349",
+                        "inverse-primary": "#735c00",
+                        "surface-bright": "#3a3939",
+                        "inverse-surface": "#e5e2e1",
+                        "tertiary": "#c8c6c6",
+                        "secondary-container": "#920703",
+                        "primary-container": "#524000",
+                        "outline-variant": "#5a403c",
+                        "on-tertiary-fixed": "#1b1c1c",
+                        "tertiary-fixed-dim": "#c8c6c6",
+                        "on-tertiary-container": "#b0aeae",
+                        "on-surface-variant": "#e3beb8",
+                        "on-secondary-fixed": "#410000",
+                        "on-secondary-container": "#ff9a8a",
+                        "surface-tint": "#e9c349",
+                        "on-error": "#690005",
+                        "surface-variant": "#353534",
+                        "on-primary-fixed-variant": "#574500",
+                        "surface": "#131313",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "surface-container": "#201f1f",
+                        "on-secondary-fixed-variant": "#920703",
+                        "surface-container-low": "#1c1b1b",
+                        "surface-container-highest": "#353534",
+                        "on-error-container": "#ffdad6",
+                        "on-background": "#e5e2e1",
+                        "outline": "#aa8984",
+                        "on-tertiary": "#303030",
+                        "inverse-on-surface": "#313030",
+                        "tertiary-container": "#424242",
+                        "primary": "#e9c349",
+                        "surface-container-high": "#2a2a2a",
+                        "error": "#ffb4ab",
+                        "secondary-fixed": "#ffdad4",
+                        "on-surface": "#e5e2e1",
+                        "on-primary-container": "#d0ab33",
+                        "secondary-fixed-dim": "#ffb4a8",
+                        "on-secondary": "#690000",
+                        "on-primary-fixed": "#241a00",
+                        "on-primary": "#3c2f00"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Newsreader", "serif"],
+                        "body": ["Noto Serif", "serif"],
+                        "label": ["Work Sans", "sans-serif"]
+                    },
+                    "animation": {
+                        "danger-pulse": "danger-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+                    },
+                    "keyframes": {
+                        "danger-pulse": {
+                            "0%, 100%": { opacity: 1, boxShadow: "0 0 0 0 rgba(146, 7, 3, 0.7)" },
+                            "50%": { opacity: 0.9, boxShadow: "0 0 20px 5px rgba(146, 7, 3, 0.4)" },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(19, 19, 19, 0) 0%, rgba(19, 19, 19, 0.4) 40%, rgba(19, 19, 19, 0.9) 85%, rgba(19, 19, 19, 1) 100%);
+        }
+        .gold-glow {
+            box-shadow: 0 -1px 0 0 rgba(233, 195, 73, 0.4) inset;
+        }
+        .gothic-logo {
+            font-family: 'Newsreader', serif;
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            font-variant: small-caps;
+        }
+        #mobile-menu.active {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body min-h-[1024px]">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#0e0e0e]/70 dark:bg-zinc-950/70 backdrop-blur-xl">
+<div class="flex justify-between items-center px-6 h-16 w-full max-w-none">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#e9c349] dark:text-amber-400" data-icon="shield">shield</span>
+<div class="text-lg font-['Newsreader'] font-bold tracking-tighter text-[#e9c349] dark:text-amber-400 uppercase tracking-widest gothic-logo">
+                BASGIATH
+            </div>
+</div>
+<!-- Desktop Nav -->
+<nav class="hidden lg:flex items-center gap-10">
+<a class="font-label text-[1rem] uppercase text-[#e9c349] dark:text-amber-400 hover:opacity-80 transition-opacity" href="#">INICIO</a>
+<a class="font-label text-[1rem] uppercase text-[#e9c349] dark:text-amber-400 hover:opacity-80 transition-opacity" href="#">JINETES</a>
+<a class="font-label text-[1rem] uppercase text-[#e9c349] dark:text-amber-400 hover:opacity-80 transition-opacity" href="#">DRAGONES</a>
+<a class="font-label text-[1rem] uppercase text-[#e9c349] dark:text-amber-400 hover:opacity-80 transition-opacity" href="#">MAPAS</a>
+<a class="font-label text-[1rem] uppercase text-[#e9c349] dark:text-amber-400 hover:opacity-80 transition-opacity" href="#">CONVOCATORIA</a>
+<a class="font-label text-[1rem] uppercase text-[#e9c349] dark:text-amber-400 hover:opacity-80 transition-opacity" href="#">EL PEAJE</a>
+</nav>
+<div class="flex items-center gap-4 text-[#e9c349] dark:text-amber-400">
+<span class="material-symbols-outlined cursor-pointer hover:scale-110 transition-transform text-2xl hidden md:block" data-icon="search">search</span>
+<span class="material-symbols-outlined cursor-pointer hover:scale-110 transition-transform text-2xl hidden md:block" data-icon="person">person</span>
+<!-- Hamburger Menu Button (Trailing) -->
+<button class="lg:hidden flex items-center justify-center p-2 focus:outline-none active:scale-95 duration-200" id="menu-btn">
+<span class="material-symbols-outlined text-3xl" data-icon="menu">menu</span>
+</button>
+</div>
+</div>
+</header>
+<!-- NavigationDrawer -->
+<div class="fixed inset-y-0 right-0 z-[60] w-80 translate-x-full transition-all duration-300 ease-in-out bg-[#0e0e0e] dark:bg-zinc-950 shadow-[32px_0_64px_rgba(0,0,0,0.5)] flex flex-col p-8" id="mobile-menu">
+<div class="flex justify-between items-center mb-8">
+<h2 class="font-['Newsreader'] italic text-2xl text-[#e9c349] dark:text-amber-400">THE ARCHIVIST</h2>
+<button class="text-[#e9c349] dark:text-amber-400 focus:outline-none" id="close-btn">
+<span class="material-symbols-outlined text-3xl" data-icon="close">close</span>
+</button>
+</div>
+<nav class="flex flex-col gap-6">
+<a class="flex items-center gap-4 text-[#e9c349] dark:text-amber-400 font-bold border-l-2 border-[#e9c349] pl-4 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Work_Sans'] uppercase tracking-widest text-xs">INICIO</span>
+</a>
+<a class="flex items-center gap-4 text-zinc-500 font-['Work_Sans'] uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="military_tech">military_tech</span>
+<span>JINETES</span>
+</a>
+<a class="flex items-center gap-4 text-zinc-500 font-['Work_Sans'] uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+<span>DRAGONES</span>
+</a>
+<a class="flex items-center gap-4 text-zinc-500 font-['Work_Sans'] uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span>MAPAS</span>
+</a>
+<a class="flex items-center gap-4 text-zinc-500 font-['Work_Sans'] uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="scroll">scroll</span>
+<span>CONVOCATORIA</span>
+</a>
+<a class="flex items-center gap-4 text-zinc-500 font-['Work_Sans'] uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span>EL PEAJE</span>
+</a>
+</nav>
+<div class="mt-auto pt-8 border-t border-zinc-900 dark:border-zinc-800 flex flex-col gap-4">
+<div class="flex items-center gap-4 text-zinc-500 pl-4">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Work_Sans'] uppercase tracking-widest text-xs">CUENTA</span>
+</div>
+<div class="flex items-center gap-4 text-zinc-500 pl-4">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="font-['Work_Sans'] uppercase tracking-widest text-xs">BUSCAR</span>
+</div>
+</div>
+</div>
+<main class="relative pb-32 pt-16">
+<!-- Hero Section -->
+<section class="relative h-[819px] flex items-end overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Epic and dangerous high fantasy fortress of Basgiath, ancient black stone castle with gothic spires perched precariously on top of a jagged, dark mountain peak." class="w-full h-full object-cover object-center grayscale-[0.2] contrast-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdLoyOGJNLJJ_y1sarb9xJVbUqkzDhWxVzhxaK0EsaKihMnqoRnk3OB-ciPzG2IvBCjyRpK53pgUaQMCuM166KwHwckpO4K_m19zyIKNfqepXmvWQDSKCkQWb7vMyMIsOnhwwDfeW1TwC7Dj4xF-81dnNyZfDSs42DF9sbHsbczZrfogsx1fPSvOx0yPvYcX28_0UBLoEo7LWQziedNbd4PwefmugiRLCrhxR2y26ULmtBfcXs3OB9e1qbVqZ3_x4MIZNIZSvmuk8"/>
+<div class="absolute inset-0 hero-gradient"></div>
+</div>
+<div class="relative z-10 w-full max-w-7xl mx-auto px-6 pb-20">
+<div class="max-w-3xl">
+<span class="font-label text-primary text-xs tracking-[0.3em] uppercase mb-4 block">Estatus: Recluta de Primer Año</span>
+<h1 class="font-headline text-5xl md:text-7xl lg:text-8xl text-on-background leading-none mb-6">
+                    PROGRAMA DE INSTRUCCIÓN DE JINETES
+                </h1>
+<p class="font-body text-xl md:text-2xl text-on-surface-variant max-w-2xl italic border-l-2 border-secondary-container pl-6 py-2">
+                    "Solo los fuertes sobreviven al peaje. Tu entrenamiento comienza aquí."
+                </p>
+</div>
+</div>
+</section>
+<!-- Tactical Grid Section -->
+<section class="max-w-7xl mx-auto px-6 -mt-10 relative z-20">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Module 1 -->
+<div class="bg-surface-container-high p-8 flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 font-headline text-6xl select-none group-hover:opacity-20 transition-opacity">01</div>
+<div>
+<span class="material-symbols-outlined text-primary text-3xl mb-6">air</span>
+<h3 class="font-headline text-3xl text-on-background mb-4">Vuelo Inicial</h3>
+<p class="font-body text-on-surface-variant leading-relaxed mb-8">
+                        Domina el vínculo y las corrientes de aire sobre el Valle. Entiende la aerodinámica del dragón y la resistencia del jinete.
+                    </p>
+</div>
+</div>
+<!-- Module 2 -->
+<div class="bg-surface-container-high p-8 flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 font-headline text-6xl select-none group-hover:opacity-20 transition-opacity">02</div>
+<div>
+<span class="material-symbols-outlined text-primary text-3xl mb-6">swords</span>
+<h3 class="font-headline text-3xl text-on-background mb-4">Tácticas de Combate</h3>
+<p class="font-body text-on-surface-variant leading-relaxed mb-8">
+                        Estrategias de guerra y combate cuerpo a cuerpo para jinetes. El cuadrante no perdona la debilidad técnica.
+                    </p>
+</div>
+</div>
+<!-- Module 3 -->
+<div class="bg-surface-container-high p-8 flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 font-headline text-6xl select-none group-hover:opacity-20 transition-opacity">03</div>
+<div>
+<span class="material-symbols-outlined text-primary text-3xl mb-6">bolt</span>
+<h3 class="font-headline text-3xl text-on-background mb-4">Estudio de Sellos</h3>
+<p class="font-body text-on-surface-variant leading-relaxed mb-8">
+                        Canalización de poder y manifestación de habilidades únicas. Controla la tormenta antes de que te consuma.
+                    </p>
+</div>
+</div>
+<!-- Module 4 -->
+<div class="bg-surface-container-high p-8 flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 font-headline text-6xl select-none group-hover:opacity-20 transition-opacity">04</div>
+<div>
+<span class="material-symbols-outlined text-primary text-3xl mb-6">menu_book</span>
+<h3 class="font-headline text-3xl text-on-background mb-4">Protocolos del Códice</h3>
+<p class="font-body text-on-surface-variant leading-relaxed mb-8">
+                        Leyes inquebrantables y jerarquía del Cuadrante. Un jinete sin disciplina es un cadáver en el campo de batalla.
+                    </p>
+</div>
+</div>
+<!-- Module 5 -->
+<div class="bg-surface-container-high p-8 flex flex-col justify-between relative overflow-hidden group lg:col-span-2">
+<div class="absolute top-0 right-0 p-4 opacity-10 font-headline text-6xl select-none group-hover:opacity-20 transition-opacity">05</div>
+<div class="flex flex-col md:flex-row gap-8">
+<div class="md:w-1/3">
+<span class="material-symbols-outlined text-secondary text-3xl mb-6">skull</span>
+<h3 class="font-headline text-3xl text-on-background mb-4">Supervivencia en el Parapeto</h3>
+<p class="font-label text-xs text-secondary uppercase tracking-widest mb-4">Riesgo Crítico</p>
+</div>
+<div class="md:w-2/3">
+<p class="font-body text-on-surface-variant leading-relaxed mb-8">
+                            Ningún arnés, ninguna red... solo tu voluntad contra el abismo. El 15% de los candidatos fallan aquí.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Archivist's Quote / Decoration -->
+<section class="max-w-7xl mx-auto px-6 mt-32 mb-16 text-center">
+<div class="inline-block relative">
+<span class="font-headline text-8xl opacity-[0.03] absolute -top-12 left-1/2 -translate-x-1/2 select-none">Mors Vincit Omnia</span>
+<p class="font-label text-zinc-500 text-[10px] tracking-[0.5em] uppercase">Documento Reservado - Cuadrante de Jinetes</p>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<script>
+    const menuBtn = document.getElementById('menu-btn');
+    const closeBtn = document.getElementById('close-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.remove('translate-x-full');
+        document.body.style.overflow = 'hidden';
+    });
+
+    closeBtn.addEventListener('click', () => {
+        mobileMenu.classList.add('translate-x-full');
+        document.body.style.overflow = 'auto';
+    });
+
+    // Close menu on link click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full');
+            document.body.style.overflow = 'auto';
+        });
+    });
+</script>
+</body></html>

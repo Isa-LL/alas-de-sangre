@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BASGIATH COMMAND - Mapa Táctico</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Noto+Serif:ital,wght@0,100..900;1,100..900&amp;family=Work+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed-dim": "#c8c6c6",
+                    "secondary-fixed-dim": "#ffb4a8",
+                    "tertiary": "#c8c6c6",
+                    "inverse-primary": "#735c00",
+                    "surface-container": "#201f1f",
+                    "primary-fixed-dim": "#e9c349",
+                    "on-primary": "#3c2f00",
+                    "surface": "#131313",
+                    "secondary-fixed": "#ffdad4",
+                    "primary-container": "#524000",
+                    "surface-variant": "#353534",
+                    "on-tertiary-fixed": "#1b1c1c",
+                    "on-tertiary-container": "#b0aeae",
+                    "on-secondary-container": "#ff9a8a",
+                    "on-secondary": "#690000",
+                    "outline": "#aa8984",
+                    "on-primary-container": "#d0ab33",
+                    "outline-variant": "#5a403c",
+                    "on-primary-fixed-variant": "#574500",
+                    "on-secondary-fixed-variant": "#920703",
+                    "inverse-on-surface": "#313030",
+                    "error": "#ffb4ab",
+                    "tertiary-container": "#424242",
+                    "surface-bright": "#3a3939",
+                    "on-tertiary": "#303030",
+                    "on-error-container": "#ffdad6",
+                    "on-error": "#690005",
+                    "secondary": "#ffb4a8",
+                    "surface-tint": "#e9c349",
+                    "surface-container-low": "#1c1b1b",
+                    "on-secondary-fixed": "#410000",
+                    "primary-fixed": "#ffe088",
+                    "on-surface": "#e5e2e1",
+                    "surface-dim": "#131313",
+                    "surface-container-highest": "#353534",
+                    "background": "#000000",
+                    "inverse-surface": "#e5e2e1",
+                    "secondary-container": "#920703",
+                    "on-background": "#e5e2e1",
+                    "on-tertiary-fixed-variant": "#474747",
+                    "surface-container-high": "#2a2a2a",
+                    "primary": "#e9c349",
+                    "on-surface-variant": "#e3beb8",
+                    "surface-container-lowest": "#000000",
+                    "error-container": "#93000a",
+                    "tertiary-fixed": "#e4e2e2",
+                    "on-primary-fixed": "#241a00"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Newsreader", "serif"],
+                    "body": ["Noto Serif", "serif"],
+                    "label": ["Work Sans", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .parchment-texture {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.05;
+        }
+        .scribe-panel::-webkit-scrollbar { width: 3px; }
+        .scribe-panel::-webkit-scrollbar-track { background: transparent; }
+        .scribe-panel::-webkit-scrollbar-thumb { background: rgba(233, 195, 73, 0.2); }
+        
+        .nav-link { 
+            font-family: 'Newsreader', serif;
+            font-size: 0.9rem; 
+        }
+        @media (min-width: 768px) {
+            .nav-link { font-size: 1rem; }
+        }
+
+        #mobile-menu:target {
+            display: flex;
+        }
+    
+        #mobile-menu.hidden-drawer {
+            transform: translateX(100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+        .hidden-drawer {
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-black text-on-surface font-body selection:bg-primary/30 min-h-[1024px] flex flex-col">
+<!-- TopAppBar Unified -->
+<header class="fixed top-0 w-full z-50 bg-[#0e0e0e]/70 backdrop-blur-xl border-b border-[#2a2a2a]">
+<div class="flex justify-between items-center px-6 h-16 w-full max-w-none mx-auto">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#e9c349]">shield</span>
+<div class="font-headline font-bold tracking-tighter text-[#e9c349] uppercase text-lg">
+                BASGIATH
+            </div>
+</div>
+<nav class="hidden md:flex items-center gap-6 lg:gap-8 font-label text-[0.8rem] lg:text-[1rem] uppercase text-[#C5A059] mx-4">
+<a class="hover:text-[#e9c349] transition-colors whitespace-nowrap" href="#">INICIO</a>
+<a class="hover:text-[#e9c349] transition-colors whitespace-nowrap" href="#">JINETES</a>
+<a class="hover:text-[#e9c349] transition-colors whitespace-nowrap" href="#">DRAGONES</a>
+<a class="hover:text-[#e9c349] transition-colors whitespace-nowrap border-b border-primary/50" href="#">MAPAS</a>
+<a class="hover:text-[#e9c349] transition-colors whitespace-nowrap" href="#">CONVOCATORIA</a>
+<a class="hover:text-[#e9c349] transition-colors whitespace-nowrap" href="#">EL PEAJE</a>
+</nav>
+<div class="flex items-center gap-4 lg:gap-6">
+<button class="hidden sm:block material-symbols-outlined text-[#e9c349] text-2xl hover:text-white transition-colors">search</button>
+<button class="material-symbols-outlined text-[#e9c349] text-3xl p-1 active:scale-95 duration-200" onclick="document.getElementById('mobile-menu').classList.remove('hidden-drawer')">menu</button>
+</div>
+</div>
+</header><!-- Mobile Navigation Drawer -->
+<div class="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm hidden-drawer transition-opacity duration-300" id="mobile-menu-overlay" onclick="document.getElementById('mobile-menu').classList.add('hidden-drawer')"></div>
+<div class="fixed inset-y-0 right-0 z-[70] flex flex-col p-8 bg-[#0e0e0e] h-full w-80 rounded-r-sm shadow-[32px_0_64px_rgba(0,0,0,0.5)] hidden-drawer transition-all duration-300 ease-in-out" id="mobile-menu">
+<div class="flex justify-between items-center mb-8">
+<h2 class="font-headline italic text-2xl text-[#e9c349]">THE ARCHIVIST</h2>
+<button class="material-symbols-outlined text-zinc-500" onclick="document.getElementById('mobile-menu').classList.add('hidden-drawer')">close</button>
+</div>
+<nav class="flex flex-col gap-6">
+<a class="flex items-center gap-4 text-zinc-500 font-label uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] py-2 rounded transition-all" href="#" onclick="document.getElementById('mobile-menu').classList.add('hidden-drawer')">
+<span class="material-symbols-outlined text-sm">home</span>
+<span>INICIO</span>
+</a>
+<a class="flex items-center gap-4 text-zinc-500 font-label uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] py-2 rounded transition-all" href="#" onclick="document.getElementById('mobile-menu').classList.add('hidden-drawer')">
+<span class="material-symbols-outlined text-sm">military_tech</span>
+<span>JINETES</span>
+</a>
+<a class="flex items-center gap-4 text-zinc-500 font-label uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] py-2 rounded transition-all" href="#" onclick="document.getElementById('mobile-menu').classList.add('hidden-drawer')">
+<span class="material-symbols-outlined text-sm">auto_awesome</span>
+<span>DRAGONES</span>
+</a>
+<a class="flex items-center gap-4 text-[#e9c349] font-bold border-l-2 border-[#e9c349] pl-4 font-label uppercase tracking-widest text-xs transition-all" href="#" onclick="document.getElementById('mobile-menu').classList.add('hidden-drawer')">
+<span class="material-symbols-outlined text-sm">map</span>
+<span>MAPAS</span>
+</a>
+<a class="flex items-center gap-4 text-zinc-500 font-label uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] py-2 rounded transition-all" href="#" onclick="document.getElementById('mobile-menu').classList.add('hidden-drawer')">
+<span class="material-symbols-outlined text-sm">scroll</span>
+<span>CONVOCATORIA</span>
+</a>
+<a class="flex items-center gap-4 text-zinc-500 font-label uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] py-2 rounded transition-all" href="#" onclick="document.getElementById('mobile-menu').classList.add('hidden-drawer')">
+<span class="material-symbols-outlined text-sm">payments</span>
+<span>EL PEAJE</span>
+</a>
+</nav>
+<div class="mt-auto pt-8 border-t border-[#2a2a2a]">
+<div class="flex gap-6 justify-center">
+<button class="material-symbols-outlined text-[#e9c349] text-2xl">search</button>
+<button class="material-symbols-outlined text-[#e9c349] text-2xl">account_circle</button>
+</div>
+</div>
+</div>
+<script>
+    (function() {
+        const menu = document.getElementById('mobile-menu');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.attributeName === 'class') {
+                    if (menu.classList.contains('hidden-drawer')) {
+                        overlay.classList.add('opacity-0', 'pointer-events-none');
+                    } else {
+                        overlay.classList.remove('opacity-0', 'pointer-events-none');
+                    }
+                }
+            });
+        });
+        
+        observer.observe(menu, { attributes: true });
+        // Initial state set by utility classes in CSS
+    })();
+</script>
+<div class="flex-1 flex flex-col pt-16">
+<main class="relative block w-full bg-black">
+<div class="grid grid-cols-1 md:grid-cols-12 w-full">
+<!-- Map Content Area -->
+<div class="relative block md:col-span-8 lg:col-span-9 p-4 md:p-8 min-h-[500px]">
+<div class="relative w-full overflow-hidden rounded-lg bg-surface-container-low border border-white/5">
+<img alt="Ancient dark parchment map of a mountain fortress" class="block w-full h-auto max-w-full grayscale brightness-50 contrast-125 transition-transform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlS9XuVfnAQ5N2aPa07km_Xng5F2OaJnjaig5BIpoq5OAOoUEQzuypt_4XI7kkuiZsMu4dP46HrpPeP6hU8EaR64GiqQ2vkw_S0VD9x2k-j3xnFTlEp9HD28HZ83Y5gS_h8659Ancsj7nN9pdqch4UUFIKNAZH28enPPeUT_c2TGx5h4BfmHH5e2KIPF78XZgsz3yzQWpZ6YWPLmRMk4Hy38HSLpl-1ZzxDU26v-TaEQP4hWIhwBr7VJ41v07oMOHztBWbkoN4P3k"/>
+<div class="absolute inset-0 parchment-texture pointer-events-none"></div>
+<!-- Hotspot Template Functionality via Utility Classes -->
+<!-- Hotspot: Navarre -->
+<div class="absolute top-[28%] left-[43%] group cursor-pointer z-20" title="Reino de Navarre">
+<div class="w-4 h-4 bg-primary/20 rounded-full flex items-center justify-center animate-pulse">
+<div class="w-2 h-2 bg-primary rounded-full shadow-[0_0_8px_rgba(233,195,73,0.8)]"></div>
+</div>
+<span class="absolute left-6 top-1/2 -translate-y-1/2 whitespace-nowrap font-headline text-[#e9c349] text-[10px] uppercase tracking-widest drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] opacity-70 group-hover:opacity-100 transition-opacity">REINO DE NAVARRE</span>
+</div>
+<!-- Hotspot: El Valle -->
+<div class="absolute top-[45%] left-[35%] group cursor-pointer z-20" title="El Valle">
+<div class="w-4 h-4 bg-primary/20 rounded-full flex items-center justify-center animate-pulse">
+<div class="w-2 h-2 bg-primary rounded-full shadow-[0_0_8px_rgba(233,195,73,0.8)]"></div>
+</div>
+<span class="absolute left-6 top-1/2 -translate-y-1/2 whitespace-nowrap font-headline text-[#e9c349] text-[10px] uppercase tracking-widest drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] opacity-70 group-hover:opacity-100 transition-opacity">EL VALLE</span>
+</div>
+<!-- Hotspot: Aretia -->
+<div class="absolute top-[70%] left-[25%] group cursor-pointer z-20" title="Aretia">
+<div class="w-4 h-4 bg-primary/20 rounded-full flex items-center justify-center animate-pulse">
+<div class="w-2 h-2 bg-primary rounded-full shadow-[0_0_8px_rgba(233,195,73,0.8)]"></div>
+</div>
+<span class="absolute left-6 top-1/2 -translate-y-1/2 whitespace-nowrap font-headline text-[#e9c349] text-[10px] uppercase tracking-widest drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] opacity-70 group-hover:opacity-100 transition-opacity">ARETIA</span>
+</div>
+<!-- Hotspot: Tyrrendor -->
+<div class="absolute top-[65%] left-[60%] group cursor-pointer z-20" title="Provincia de Tyrrendor">
+<div class="w-4 h-4 bg-primary/20 rounded-full flex items-center justify-center animate-pulse">
+<div class="w-2 h-2 bg-primary rounded-full shadow-[0_0_8px_rgba(233,195,73,0.8)]"></div>
+</div>
+<span class="absolute left-6 top-1/2 -translate-y-1/2 whitespace-nowrap font-headline text-[#e9c349] text-[10px] uppercase tracking-widest drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] opacity-70 group-hover:opacity-100 transition-opacity">PROVINCIA DE TYRRENDOR</span>
+</div>
+<!-- New Hotspot: SUMERTON -->
+<div class="absolute top-[55%] left-[53%] group cursor-pointer z-20" title="Sumerton">
+<div class="w-4 h-4 bg-primary/20 rounded-full flex items-center justify-center animate-pulse">
+<div class="w-2 h-2 bg-primary rounded-full shadow-[0_0_8px_rgba(233,195,73,0.8)]"></div>
+</div>
+<span class="absolute left-6 top-1/2 -translate-y-1/2 whitespace-nowrap font-headline text-[#e9c349] text-[10px] uppercase tracking-widest drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] opacity-70 group-hover:opacity-100 transition-opacity">SUMERTON</span>
+</div>
+<!-- New Hotspot: CALDYR -->
+<div class="absolute top-[35%] left-[18%] group cursor-pointer z-20" title="Provincia de Caldyr">
+<div class="w-4 h-4 bg-primary/20 rounded-full flex items-center justify-center animate-pulse">
+<div class="w-2 h-2 bg-primary rounded-full shadow-[0_0_8px_rgba(233,195,73,0.8)]"></div>
+</div>
+<span class="absolute left-6 top-1/2 -translate-y-1/2 whitespace-nowrap font-headline text-[#e9c349] text-[10px] uppercase tracking-widest drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] opacity-70 group-hover:opacity-100 transition-opacity">CALDYR</span>
+</div>
+<!-- New Hotspot: MONTSERRAT -->
+<div class="absolute top-[82%] left-[45%] group cursor-pointer z-20" title="Puesto Fronterizo Montserrat">
+<div class="w-4 h-4 bg-primary/20 rounded-full flex items-center justify-center animate-pulse">
+<div class="w-2 h-2 bg-primary rounded-full shadow-[0_0_8px_rgba(233,195,73,0.8)]"></div>
+</div>
+<span class="absolute left-6 top-1/2 -translate-y-1/2 whitespace-nowrap font-headline text-[#e9c349] text-[10px] uppercase tracking-widest drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] opacity-70 group-hover:opacity-100 transition-opacity">MONTSERRAT</span>
+</div>
+<!-- New Hotspot: BRAEVICK -->
+<div class="absolute top-[40%] left-[78%] group cursor-pointer z-20" title="Montañas de Braevick">
+<div class="w-4 h-4 bg-primary/20 rounded-full flex items-center justify-center animate-pulse">
+<div class="w-2 h-2 bg-primary rounded-full shadow-[0_0_8px_rgba(233,195,73,0.8)]"></div>
+</div>
+<span class="absolute right-6 top-1/2 -translate-y-1/2 whitespace-nowrap font-headline text-[#e9c349] text-[10px] uppercase tracking-widest drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] opacity-70 group-hover:opacity-100 transition-opacity text-right">BRAEVICK</span>
+</div>
+</div>
+<!-- Tactical Legend -->
+<div class="relative block mt-8 bg-surface-container p-6 border border-primary/10 max-w-md">
+<h3 class="font-headline italic text-primary text-xl mb-4">Leyenda Táctica</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="text-[11px] font-label uppercase tracking-widest text-on-surface/80">Nodo de Sello</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm">shield</span>
+<span class="text-[11px] font-label uppercase tracking-widest text-on-surface/80">Perímetro de Ala</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Sidebar Info Panel -->
+<aside class="relative block md:col-span-4 lg:col-span-3 bg-[#0e0e0e] border-l border-primary/10 p-6 md:p-8">
+<div class="mb-8">
+<div class="text-[10px] font-label text-primary/60 uppercase tracking-[0.2em] mb-2">Registro de la Región</div>
+<h2 class="text-3xl md:text-4xl font-headline italic text-primary leading-tight mb-4">Reino de Navarre</h2>
+<div class="h-px w-full bg-gradient-to-r from-primary/30 to-transparent mb-6"></div>
+<div class="relative block rounded-sm mb-6 grayscale contrast-125 border border-white/5 overflow-hidden">
+<img alt="Atmospheric illustration of Navarre peaks" class="w-full h-auto max-w-full opacity-70 block" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8wn4dkg_QTpynFThCkQsvAGTbDcT70cD96mXcud9sd1At2fNLraXsoa7cEvNN3Gnao073xviGEtirufYupXQvMIfUw6vHuCvUERVog-cK5MWj5CryuqpC7LQrBL30awC08calOsMd_nXi-2p5i-aJSrNE6OX_DaM9bz5VSBPrBmF1Qe8Yqcu3wexFbP5jSOxpfcQf6YSORBw_z6pF_oPeparfL7bJTuRJAc80TWVp1XHXlnjMr8X6vKLSOoyLNO4bAheap2m_SYs"/>
+<div class="p-4 bg-surface-container-high/40">
+<p class="text-[10px] font-label text-white/40 uppercase tracking-widest italic">Ilustración Atmosférica</p>
+<p class="text-sm text-white/90">Los Picos de los Diez Dragones</p>
+</div>
+</div>
+<div class="space-y-6">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-xl">edit_note</span>
+<div>
+<p class="text-sm leading-relaxed text-on-surface/70 font-body">
+                                    "La estabilidad de Navarre depende de las defensas montañosas. Los escribas han registrado una actividad inusual en el flujo mágico de los picos occidentales."
+                                </p>
+<p class="text-[10px] font-label text-primary mt-2 uppercase tracking-widest">— Scribe Senior Jesinia</p>
+</div>
+</div>
+<div class="bg-surface-container-high/30 p-4 border-l-2 border-primary/40">
+<h5 class="text-[10px] font-label text-primary uppercase tracking-widest mb-3">Estado de Defensa</h5>
+<div class="flex justify-between items-center mb-2">
+<span class="text-[10px] text-on-surface/60 uppercase">Barrera Mágica</span>
+<span class="text-[10px] text-primary font-bold">98%</span>
+</div>
+<div class="w-full h-1 bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 98%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8">
+<button class="w-[90%] mx-auto md:w-full py-4 border border-primary/40 text-primary text-[11px] font-label uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-all duration-300 block text-center">
+                        Desplegar Ala
+                    </button>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer Unified -->
+<footer class="w-full border-t border-[#2a2a2a] bg-[#0e0e0e] mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 md:px-12 py-10 gap-8 w-full max-w-[1920px] mx-auto">
+<div class="text-[#e9c349] font-headline font-black uppercase tracking-tighter text-2xl">
+                BASGIATH ARCHIVE
+            </div>
+<div class="font-label uppercase tracking-[0.2em] text-[10px] font-bold text-[#920703] text-center md:text-left max-w-xl">
+                © VALE UNYARD ARCHIVAL DIVISION. DISSEMINATION OF CLASSIFIED MILITARY INTEL IS PUNISHABLE BY THE PEAJE.
+            </div>
+<nav class="flex flex-wrap justify-center gap-6">
+<a class="font-label uppercase tracking-[0.2em] text-[10px] font-bold text-[#e5e2e1]/50 hover:text-[#e9c349] transition-colors" href="#">CONSCRIPT LAWS</a>
+<a class="font-label uppercase tracking-[0.2em] text-[10px] font-bold text-[#e5e2e1]/50 hover:text-[#e9c349] transition-colors" href="#">WAR COLLEGE BYLAWS</a>
+<a class="font-label uppercase tracking-[0.2em] text-[10px] font-bold text-[#e5e2e1]/50 hover:text-[#e9c349] transition-colors" href="#">SCRIBE QUARTER</a>
+</nav>
+</div>
+</footer>
+</div>
+</body></html>

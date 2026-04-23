@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BASGIATH ARCHIVES | Fourth Wing</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72@display&amp;family=Noto+Serif:ital,wght@0,100..900;1,100..900&amp;family=Work+Sans:wght@300;400;600;700&amp;family=Lora:ital,wght@0,400..700;1,400..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#E9C349",
+                        "on-primary": "#0e0e0e",
+                        "background": "#000000",
+                        "surface": "#0a0a0a",
+                        "surface-container": "#131313",
+                        "surface-container-high": "#1a1a1a",
+                        "surface-container-highest": "#242424",
+                        "surface-container-low": "#080808",
+                        "surface-container-lowest": "#000000",
+                        "on-surface": "#e5e2e1",
+                        "outline": "#E9C349",
+                        "metallic-gold": "#C5A059"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Newsreader", "serif"],
+                        "body": ["Lora", "serif"],
+                        "label": ["Work Sans", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .parchment-glow {
+            background: linear-gradient(135deg, rgba(233, 195, 73, 0.05) 0%, rgba(146, 7, 3, 0.05) 100%);
+            border: 1px solid rgba(233, 195, 73, 0.1);
+        }
+        .dragon-gradient {
+            background: linear-gradient(to top, #000000 0%, transparent 100%);
+        }
+        .scribe-panel {
+            background: rgba(14, 14, 14, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(233, 195, 73, 0.2);
+            position: relative;
+        }
+        .scribe-panel::before {
+            content: '';
+            position: absolute;
+            top: 2px; left: 2px; right: 2px; bottom: 2px;
+            border: 1px solid rgba(233, 195, 73, 0.05);
+            pointer-events: none;
+        }
+        #mobile-menu {
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        }
+        #mobile-menu.hidden-drawer {
+            transform: translateX(100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-black text-on-surface font-body selection:bg-primary/30 selection:text-primary pt-[72px]" data-mode="connect">
+<!-- Header (Unified Mobile Navigation applied from COMPONENTS_290) -->
+<header class="fixed top-0 w-full z-50 bg-[#0e0e0e]/70 backdrop-blur-xl border-b border-[#2a2a2a]">
+<div class="flex justify-between items-center px-6 h-16 w-full max-w-none mx-auto">
+<!-- Logo Left -->
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#e9c349]">shield</span>
+<div class="font-headline font-bold tracking-tighter text-[#e9c349] uppercase text-lg">
+                BASGIATH
+            </div>
+</div>
+<!-- Centered Desktop Nav -->
+<nav class="hidden md:flex items-center gap-6 lg:gap-8 font-label text-[0.8rem] lg:text-[1rem] uppercase text-[#C5A059] mx-4">
+<a class="hover:text-[#e9c349] transition-colors whitespace-nowrap" href="#">INICIO</a>
+<a class="hover:text-[#e9c349] transition-colors whitespace-nowrap" href="#riders">JINETES</a>
+<a class="hover:text-[#e9c349] transition-colors whitespace-nowrap" href="#riders">DRAGONES</a>
+<a class="hover:text-[#e9c349] transition-colors whitespace-nowrap" href="#map">MAPAS</a>
+<a class="hover:text-[#e9c349] transition-colors whitespace-nowrap text-center" href="#laws">CONVOCATORIA</a>
+<a class="hover:text-[#e9c349] transition-colors whitespace-nowrap" href="#laws">EL PEAJE</a>
+</nav>
+<!-- Icons Right -->
+<div class="flex items-center gap-4 lg:gap-6">
+<button class="hidden sm:block material-symbols-outlined text-[#e9c349] text-2xl hover:text-white transition-colors">search</button>
+<!-- Mobile Menu Toggle (Hamburger) - Positioned Right -->
+<button class="material-symbols-outlined text-[#e9c349] text-3xl p-1 active:scale-95 duration-200" onclick="document.getElementById('mobile-menu').classList.remove('hidden-drawer')">menu</button>
+</div>
+</div>
+</header>
+<!-- Mobile Navigation Drawer (NavigationDrawer from COMPONENTS_290) -->
+<div class="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm hidden-drawer transition-opacity duration-300" id="mobile-menu-overlay" onclick="document.getElementById('mobile-menu').classList.add('hidden-drawer')"></div>
+<div class="fixed inset-y-0 right-0 z-[70] flex flex-col p-8 bg-[#0e0e0e] h-full w-80 rounded-r-sm shadow-[32px_0_64px_rgba(0,0,0,0.5)] hidden-drawer transition-all duration-300 ease-in-out" id="mobile-menu">
+<div class="flex justify-between items-center mb-8">
+<h2 class="font-headline italic text-2xl text-[#e9c349]">THE ARCHIVIST</h2>
+<button class="material-symbols-outlined text-zinc-500" onclick="document.getElementById('mobile-menu').classList.add('hidden-drawer')">close</button>
+</div>
+<nav class="flex flex-col gap-6">
+<a class="flex items-center gap-4 text-[#e9c349] font-bold border-l-2 border-[#e9c349] pl-4 transition-all" href="#" onclick="document.getElementById('mobile-menu').classList.add('hidden-drawer')">
+<span class="material-symbols-outlined text-sm">home</span>
+<span class="font-['Work_Sans'] uppercase tracking-widest text-xs">INICIO</span>
+</a>
+<a class="flex items-center gap-4 text-zinc-500 font-['Work_Sans'] uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] py-2 rounded transition-all" href="#riders" onclick="document.getElementById('mobile-menu').classList.add('hidden-drawer')">
+<span class="material-symbols-outlined text-sm">military_tech</span>
+<span>JINETES</span>
+</a>
+<a class="flex items-center gap-4 text-zinc-500 font-['Work_Sans'] uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] py-2 rounded transition-all" href="#riders" onclick="document.getElementById('mobile-menu').classList.add('hidden-drawer')">
+<span class="material-symbols-outlined text-sm">auto_awesome</span>
+<span>DRAGONES</span>
+</a>
+<a class="flex items-center gap-4 text-zinc-500 font-['Work_Sans'] uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] py-2 rounded transition-all" href="#map" onclick="document.getElementById('mobile-menu').classList.add('hidden-drawer')">
+<span class="material-symbols-outlined text-sm">map</span>
+<span>MAPAS</span>
+</a>
+<a class="flex items-center gap-4 text-zinc-500 font-['Work_Sans'] uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] py-2 rounded transition-all" href="#laws" onclick="document.getElementById('mobile-menu').classList.add('hidden-drawer')">
+<span class="material-symbols-outlined text-sm">scroll</span>
+<span>CONVOCATORIA</span>
+</a>
+<a class="flex items-center gap-4 text-zinc-500 font-['Work_Sans'] uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] py-2 rounded transition-all" href="#laws" onclick="document.getElementById('mobile-menu').classList.add('hidden-drawer')">
+<span class="material-symbols-outlined text-sm">payments</span>
+<span>EL PEAJE</span>
+</a>
+</nav>
+<div class="mt-auto pt-8 border-t border-[#2a2a2a]">
+<div class="flex gap-6 justify-center">
+<button class="material-symbols-outlined text-[#e9c349] text-2xl">search</button>
+<button class="material-symbols-outlined text-[#e9c349] text-2xl">account_circle</button>
+</div>
+</div>
+</div>
+<script>
+    // Handle overlay visibility linked to drawer state
+    const menu = document.getElementById('mobile-menu');
+    const overlay = document.getElementById('mobile-menu-overlay');
+    
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.attributeName === 'class') {
+                if (menu.classList.contains('hidden-drawer')) {
+                    overlay.classList.add('opacity-0', 'pointer-events-none');
+                } else {
+                    overlay.classList.remove('opacity-0', 'pointer-events-none');
+                }
+            }
+        });
+    });
+    
+    observer.observe(menu, { attributes: true });
+    // Initial state
+    overlay.classList.add('opacity-0', 'pointer-events-none');
+    menu.classList.add('hidden-drawer');
+</script>
+<!-- Hero Section -->
+<section class="relative min-h-[819px] w-full flex items-center justify-center py-20" data-stitch-vh="min-h-[819px]===min-h-[80vh]">
+<div class="absolute inset-0 z-0">
+<img alt="Cinematic wide shot of a massive black dragon silhouette against a stormy sky" class="w-full h-full object-cover brightness-50" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPSN_Io73PLLwPjSbiZX7XzITXMQaxZ_ifShskQ9jv8O-FmX_3b-1ZWg9QvxEabHEEO9mpJntTphfrQAfvDCHZZZ0ZDs5BW2F2FWapP8MPZjvv_9mBAR-9lrgJithlqfdYXghPkvnvhSe7H996V1umDiafrOGonJ_HiHbNjnmNuaQqqPeGgnPwG-oukv80zwmTn9A4-uify-vN7UV8p_PVsgZHU4bdIQ-T0bb1XKsg-_bI2OAnbZ3pvZpohmCZGFzMmYVn2A3v_gw"/>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black"></div>
+</div>
+<div class="relative z-10 text-center px-4 max-w-4xl">
+<h1 class="font-headline text-5xl md:text-8xl lg:text-9xl text-primary font-extrabold tracking-tighter mb-6 drop-shadow-2xl">
+            ALAS DE SANGRE
+        </h1>
+<p class="font-body italic text-lg md:text-2xl text-on-surface opacity-90 leading-relaxed max-w-2xl mx-auto border-y border-primary/20 py-6">
+            "Un jinete sin su dragón es un hombre muerto. Un dragón sin su jinete es una tragedia."
+        </p>
+</div>
+</section>
+<!-- Laws Section -->
+<section class="py-20 bg-black px-6" id="laws">
+<div class="max-w-4xl mx-auto relative parchment-glow p-8 md:p-24 border-double border-4 border-primary/30">
+<div class="relative mb-12 text-center">
+<span class="font-label text-primary uppercase tracking-[0.3em] text-xs px-8 py-2 border border-primary/30 inline-block bg-black">Lex Basgiath</span>
+</div>
+<h2 class="font-headline text-3xl md:text-5xl text-primary text-center mb-12">Leyes del Cuadrante</h2>
+<div class="grid md:grid-cols-2 gap-12 font-body text-on-surface/80 leading-loose">
+<div class="space-y-8">
+<p class="first-letter:text-5xl first-letter:font-headline first-letter:text-primary first-letter:mr-3 first-letter:float-left">
+                    La supervivencia es la primera y única obligación de un jinete. Aquellos que no pueden soportar el peso de su propio destino serán consumidos por el fuego de los que sí pueden.
+                </p>
+<p>
+                    Todo cadete debe presentarse al Trilla de Sangre sin armas externas, confiando únicamente en su ingenio y la fuerza de su voluntad hasta que el vínculo sea forjado.
+                </p>
+</div>
+<div class="space-y-8 border-t md:border-t-0 md:border-l border-primary/10 pt-12 md:pt-0 md:pl-12">
+<p>
+                    El vínculo con un dragón es absoluto. La traición a la corona es traición al vínculo. Las consecuencias son terminales.
+                </p>
+<p class="italic text-primary/80">
+                    "Un jinete no pregunta por qué. Un jinete simplemente sobrevive o arde."
+                </p>
+</div>
+</div>
+<div class="mt-12 text-center">
+<span class="material-symbols-outlined text-primary/40 text-4xl">book_5</span>
+</div>
+</div>
+</section>
+<!-- Riders Section -->
+<section class="py-20 bg-black px-6" id="riders">
+<div class="max-w-[1440px] mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-center md:items-end mb-16 gap-8 text-center md:text-left">
+<div>
+<h2 class="font-headline text-4xl md:text-5xl text-on-surface mb-2">Vínculos de Poder</h2>
+<p class="font-label uppercase tracking-widest text-primary text-sm">Jinetes y Dragones del Ala Cuarta</p>
+</div>
+<div class="h-[1px] flex-grow bg-white/10 mx-8 hidden md:block"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Cards -->
+<div class="group relative overflow-hidden bg-surface-container aspect-[3/4]">
+<img alt="Violet Sorrengail" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB01Qn-aUnCNCZolPrQUxEfJ_UQ-jKqkrF1aoojV4oHdwI2xUADKC6mkOT4PCCM1XrrnZN_Q7aFBAyVB03jOJ-TX5xpXM_PhZZ8owhqNk7JjnJBaidnm4CBVGuP7KUFwgA4qaPmLqfYSHFeF8PIgqImzw9GSpsTGRYdt5js5bm0KwscyaD5H4tbJdzw3o_9S9Jbw4Yvu7gNqDWuOb9snZIDSvwYEXv4OIsRX-xqwjaCQuN-W3ssRdKtiC3_5e38ZqdwivfAFhRrS50"/>
+<div class="absolute inset-0 dragon-gradient flex flex-col justify-end p-8">
+<span class="font-label text-primary text-xs tracking-widest uppercase mb-2">Creación de Rayos</span>
+<h3 class="font-headline text-2xl md:text-3xl text-on-surface mb-2">Violet Sorrengail</h3>
+<p class="font-body text-sm opacity-70 italic">"No moriré hoy."</p>
+</div>
+</div>
+<div class="group relative overflow-hidden bg-surface-container aspect-[3/4]">
+<img alt="Xaden Riorson" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBw2ELLnSAYglzPHc-ieMst1edEc9PjfsMKDfOVTtYjcMkmaF5KvjaWW_2g5yAlpjbL9EKDvS3WBhMKffyNcBQbMR274gKgt6Xrlu5Eh8kqeoaf43drkLUQPUz50BpfgvPNz9h9p1aEb5cTbMjAtx7iBodLZDEA38sW6Z7imM5wJ9DDTvVzq83jhA02vWf_ppwpuK6jvJxFtsItLbPwrgNuVyJGIRl1Cff2rByu0TVfMJrp-zifVuDzMA7KPBVYF_H7lTWtnLVpm3g"/>
+<div class="absolute inset-0 dragon-gradient flex flex-col justify-end p-8">
+<span class="font-label text-primary text-xs tracking-widest uppercase mb-2">Líder de Ala</span>
+<h3 class="font-headline text-2xl md:text-3xl text-on-surface mb-2">Xaden Riorson</h3>
+<p class="font-body text-sm opacity-70 italic">"La justicia no siempre es legal."</p>
+</div>
+</div>
+<div class="group relative overflow-hidden bg-surface-container aspect-[3/4]">
+<img alt="Tairn" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVxzKoSFgJCs3PbVMpAKQJg9S7zhpYPt_OMLpSc7OsZl-gr--BSYzs7I49oH68pSX72ZCeLjLha9PEuUFyKjbIO1O4h61IEDXAB0kHRE8PWZ5lYw85bzlwYTBrmfmaCp4ds-CVDMN28KEbcGGGN4YBdt7_44gB1zeINOHWzphiWTGSDX9tf9XFodbzPtGah2iXyqagItiWHlWw2Jdvx_6F1gjKxXp9t5nu8G4craMs3PEaJZcQeqErx7N_6DVd85_Vm-t2bx6y9Ag"/>
+<div class="absolute inset-0 dragon-gradient flex flex-col justify-end p-8">
+<span class="font-label text-primary text-xs tracking-widest uppercase mb-2">Gran Negro de Cola de Púas</span>
+<h3 class="font-headline text-2xl md:text-3xl text-on-surface mb-2">Tairn</h3>
+<p class="font-body text-sm opacity-70 italic">"Soy el fin de los tiempos."</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Map Section -->
+<section class="py-20 bg-black" id="map">
+<div class="max-w-[1440px] mx-auto px-6">
+<div class="mb-20">
+<h2 class="font-headline text-3xl md:text-4xl text-primary mb-8 text-center uppercase tracking-widest">Cartografía Imperial</h2>
+<div class="relative w-full overflow-hidden bg-black rounded-sm border border-primary/10 mb-8">
+<img alt="Mapa del Continente Navarre" class="w-full h-auto max-w-full block contrast-125 brightness-110" src="https://lh3.googleusercontent.com/aida/ADBb0uh4KLkr22FZ3h4t5CPdXzvkqy-HjOxyGZhbb2OZQm3H1gCsityDgjAdGOAevAuM3rnU0x98B7DJc-arnDPVThdNCWmaitOxkL9f3mO0jADzQmwqKCOnRRhofpwe9ks9_O5asyMJc-3NM_5VntC_SP_G0V0wN4ToX11UI0M8Jud0AduknfRppGbHpCvrI9yiSaERUREkirBSumiihOTjc6MhyUEsv2mJ7bzfpoAgtqCrmYT_bBGa72wfOhtzgXwRFNzuwu50B9GuKw"/>
+</div>
+<div class="scribe-panel p-6 md:p-8 max-w-4xl mx-auto">
+<h3 class="font-headline text-2xl text-primary mb-4 italic">Geografía de la Supervivencia</h3>
+<p class="font-body text-on-surface/80 leading-relaxed">
+                    El continente se divide entre el Reino de Navarre y el Reino de Poromiel. Protegido por las montañas orientales y la barrera mágica que solo los dragones de Navarre pueden sostener, este mapa representa la última línea de defensa contra la devastación exterior. Cada frontera es un recordatorio de que la paz tiene un precio de sangre.
+                </p>
+</div>
+</div>
+<div class="grid lg:grid-cols-2 gap-12 items-start">
+<div class="relative rounded-sm overflow-hidden bg-surface-container-high border border-primary/10 w-full">
+<img alt="Plano de la Fortaleza Basgiath" class="w-full h-auto max-w-full block" src="https://lh3.googleusercontent.com/aida/ADBb0uj2fy-OFsBR5yxKypop199dsQp5joUhIWIDb4gkBRTcYG9-pQJNRlrujX26spQ_ZsQ_fs4TZo_Kc27sLLT_i7R1omtBpYRw2fTcBWiMaVR75g0S3vMxOLHBGRH2EpGQgSyRpxS1HYM6Sb-3D0trYm6MaVMeoGVfbdRvStiXzbvaZrXmSs8TH2k_5L_6lg6Xu1_AJzOhrqPAlyIzTbHsVWpdhtp5Hlvbq5GrOMD74L5mfJgdwd6tswy7UUXjR6jemaUm32iNgFx1"/>
+</div>
+<div class="scribe-panel p-8 md:p-10 flex flex-col justify-center">
+<span class="font-label text-primary text-xs tracking-[0.4em] uppercase mb-4">Registro Archivista</span>
+<h3 class="font-headline text-3xl md:text-4xl text-primary mb-6 italic">Guía del Cadete: Basgiath</h3>
+<p class="font-body text-on-surface/80 text-lg leading-relaxed mb-10">
+                    La Fortaleza de Basgiath no es solo una academia; es una ciudadela tallada en piedra. Desde el Parapeto donde se decide quién es digno, hasta el Cuadrante de Jinetes donde se forjan los vínculos sagrados. El mapa detalla las zonas restringidas donde solo aquellos con un Sello manifestado pueden transitar bajo pena de muerte.
+                </p>
+<ul class="space-y-4 font-label text-sm uppercase tracking-widest text-primary">
+<li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-primary rotate-45"></span> Cuadrante de Jinetes</li>
+<li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-primary rotate-45"></span> Cuadrante de Curanderos</li>
+<li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-primary rotate-45"></span> Cuadrante de Escribas (Subterráneo)</li>
+<li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-primary rotate-45"></span> Cuadrante de Infantería</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-[#0e0e0e] w-full border-t border-[#2a2a2a] py-12">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 gap-10 w-full max-w-[1920px] mx-auto">
+<div class="text-[#C5A059] font-bold font-headline italic text-2xl uppercase">
+            BASGIATH ARCHIVE
+        </div>
+<div class="flex flex-wrap justify-center gap-6 font-label uppercase tracking-[0.2em] text-[10px] font-bold text-[#e5e2e1]/50">
+<a class="hover:text-metallic-gold transition-colors" href="#">CONSCRIPT LAWS</a>
+<a class="hover:text-metallic-gold transition-colors" href="#">WAR COLLEGE BYLAWS</a>
+<a class="hover:text-metallic-gold transition-colors" href="#">SCRIBE QUARTER</a>
+</div>
+<div class="text-center md:text-right flex flex-col items-center md:items-end max-w-sm">
+<p class="font-label uppercase tracking-[0.2em] text-[10px] font-bold text-[#920703]">
+                © VALE UNYARD ARCHIVAL DIVISION. DISSEMINATION OF CLASSIFIED MILITARY INTEL IS PUNISHABLE BY THE PEAJE.
+            </p>
+<p class="font-body text-[10px] italic opacity-40 text-on-surface mt-2">
+                Toda la información contenida en estos archivos es propiedad de la corona.
+            </p>
+</div>
+</div>
+</footer>
+</body></html>

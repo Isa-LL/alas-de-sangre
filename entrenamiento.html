@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,700;0,800;1,400&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Work_Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "metallic-gold": "#C5A059",
+                        "surface-container-high": "#1a1a1a",
+                        "error": "#ffb4ab",
+                        "secondary-fixed": "#ffdad4",
+                        "on-surface": "#e5e2e1",
+                        "on-primary-container": "#d0ab33",
+                        "secondary-fixed-dim": "#ffb4a8",
+                        "on-secondary": "#690000",
+                        "on-primary": "#3c2f00",
+                        "on-primary-fixed": "#241a00",
+                        "surface-tint": "#e9c349",
+                        "on-secondary-container": "#ff9a8a",
+                        "on-error": "#690005",
+                        "surface-variant": "#2a2a29",
+                        "on-primary-fixed-variant": "#574500",
+                        "surface": "#0a0a0a",
+                        "surface-container": "#141414",
+                        "on-secondary-fixed-variant": "#920703",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "on-background": "#e5e2e1",
+                        "surface-container-low": "#111111",
+                        "surface-container-highest": "#2a2a2a",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-container": "#2c2c2c",
+                        "primary": "#e9c349",
+                        "outline": "#8a7571",
+                        "on-tertiary": "#303030",
+                        "inverse-on-surface": "#131313",
+                        "tertiary": "#c8c6c6",
+                        "on-tertiary-fixed": "#1b1c1c",
+                        "secondary-container": "#920703",
+                        "primary-container": "#524000",
+                        "outline-variant": "#4d3d3b",
+                        "tertiary-fixed-dim": "#c8c6c6",
+                        "on-tertiary-container": "#b0aeae",
+                        "on-surface-variant": "#e3beb8",
+                        "on-secondary-fixed": "#410000",
+                        "surface-dim": "#0a0a0a",
+                        "error-container": "#93000a",
+                        "background": "#0a0a0a",
+                        "surface-container-lowest": "#050505",
+                        "secondary": "#ffb4a8",
+                        "primary-fixed": "#ffe088",
+                        "tertiary-fixed": "#e4e2e2",
+                        "primary-fixed-dim": "#e9c349",
+                        "inverse-primary": "#735c00",
+                        "surface-bright": "#222121",
+                        "inverse-surface": "#e5e2e1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Newsreader"],
+                        "body": ["Noto Serif"],
+                        "label": ["Work Sans"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+        }
+        .blueprint-filter {
+            filter: brightness(1.2) contrast(1.1) hue-rotate(180deg) invert(1);
+        }
+        /* Mobile Menu Animation */
+        #mobile-menu {
+            transition: opacity 0.3s ease;
+        }
+        #mobile-menu.hidden {
+            display: none;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30" data-mode="connect">
+<!-- TopAppBar Responsive -->
+<header class="fixed top-0 w-full z-50 bg-[#0e0e0e]/70 dark:bg-zinc-950/70 backdrop-blur-xl">
+<div class="flex justify-between items-center px-6 h-16 w-full max-w-none">
+<!-- Logo BASGIATH -->
+<a class="font-['Newsreader'] font-bold tracking-tighter text-[#e9c349] dark:text-amber-400 text-lg uppercase" href="#">
+                BASGIATH
+            </a>
+<!-- Navigation Links (Desktop Only) -->
+<nav class="hidden lg:flex gap-10 items-center">
+<a class="font-label text-[1rem] uppercase text-metallic-gold/70 hover:text-metallic-gold tracking-[0.1em] transition-colors" href="#">INICIO</a>
+<a class="font-label text-[1rem] uppercase text-metallic-gold/70 hover:text-metallic-gold tracking-[0.1em] transition-colors" href="#">JINETES</a>
+<a class="font-label text-[1rem] uppercase text-metallic-gold font-bold border-b-2 border-metallic-gold tracking-[0.1em] transition-colors" href="#">DRAGONES</a>
+<a class="font-label text-[1rem] uppercase text-metallic-gold/70 hover:text-metallic-gold tracking-[0.1em] transition-colors" href="#">MAPAS</a>
+<a class="font-label text-[1rem] uppercase text-metallic-gold/70 hover:text-metallic-gold tracking-[0.1em] transition-colors" href="#">CONVOCATORIA</a>
+<a class="font-label text-[1rem] uppercase text-metallic-gold/70 hover:text-metallic-gold tracking-[0.1em] transition-colors" href="#">EL PEAJE</a>
+</nav>
+<!-- Actions & Hamburger -->
+<div class="flex items-center gap-4">
+<div class="hidden sm:flex items-center gap-6">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-80 transition-opacity">search</span>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-80 transition-opacity">person</span>
+</div>
+<!-- Hamburger Button (Mobile & Tablet) -->
+<button class="text-[#e9c349] dark:text-amber-400 p-2 active:scale-95 duration-200" id="menu-toggle">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Navigation Drawer -->
+<div class="fixed inset-0 z-[60] hidden" id="mobile-menu">
+<div class="absolute inset-0 bg-black/60 backdrop-blur-sm" id="menu-overlay"></div>
+<div class="fixed inset-y-0 right-0 z-[60] flex flex-col p-8 bg-[#0e0e0e] dark:bg-zinc-950 h-full w-80 rounded-r-sm shadow-[32px_0_64px_rgba(0,0,0,0.5)] translate-x-full transition-all duration-300 ease-in-out" id="menu-drawer">
+<div class="flex justify-between items-center mb-8">
+<span class="font-['Newsreader'] italic text-2xl text-[#e9c349] dark:text-amber-400">THE ARCHIVIST</span>
+<button class="text-primary" id="menu-close">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<nav class="flex flex-col gap-4">
+<a class="flex items-center gap-4 py-3 text-zinc-500 font-['Work_Sans'] uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-lg">home</span>
+<span>INICIO</span>
+</a>
+<a class="flex items-center gap-4 py-3 text-zinc-500 font-['Work_Sans'] uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-lg">military_tech</span>
+<span>JINETES</span>
+</a>
+<a class="flex items-center gap-4 py-3 text-[#e9c349] dark:text-amber-400 font-bold border-l-2 border-[#e9c349] pl-4 bg-zinc-900/30" href="#">
+<span class="material-symbols-outlined text-lg">auto_awesome</span>
+<span>DRAGONES</span>
+</a>
+<a class="flex items-center gap-4 py-3 text-zinc-500 font-['Work_Sans'] uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-lg">map</span>
+<span>MAPAS</span>
+</a>
+<a class="flex items-center gap-4 py-3 text-zinc-500 font-['Work_Sans'] uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-lg">scroll</span>
+<span>CONVOCATORIA</span>
+</a>
+<a class="flex items-center gap-4 py-3 text-zinc-500 font-['Work_Sans'] uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-lg">payments</span>
+<span>EL PEAJE</span>
+</a>
+</nav>
+<div class="mt-auto pt-10 border-t border-zinc-900 flex gap-6 text-primary">
+<span class="material-symbols-outlined cursor-pointer hover:opacity-80">search</span>
+<span class="material-symbols-outlined cursor-pointer hover:opacity-80">person</span>
+</div>
+</div>
+</div>
+<main class="pt-16 overflow-x-hidden">
+<!-- Hero Section -->
+<section class="relative h-[819px] flex items-center justify-center overflow-hidden" data-stitch-vh="h-[819px]===h-[80vh]">
+<div class="absolute inset-0 z-0">
+<img alt="Vista panorámica de los campos de entrenamiento de Basgiath" class="w-full h-full object-cover opacity-40 mix-blend-luminosity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfGSYWKfuTPhmOGEEF8BAwI0-wXdmms4PeYGVIT0hQbWJuUyjzHyXzU2ufNuh4jbIW_U4JBOtbl4473m3Fr5PSfl2XOjn3Y2P-ULFz1aZEhXAAC1t_JHm79GrBErLhxQLkg6aunSArp-ng-ZePmCpWiFYi1r3pa4XOWOTDDx0oY49kiEaRrKJ1I8d5grUCuvFMwyYPlefQZ3HcWoh-9Nxwfo8pY8l7wlITmGvArsHwy7IG6mlXc_yrSayiPmjPE8Ld1SWi2aUVKyw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
+</div>
+<div class="relative z-10 text-center px-4 max-w-4xl">
+<span class="font-label text-primary tracking-[0.5em] uppercase text-xs mb-6 block font-bold">Sector: Campos de Entrenamiento</span>
+<h2 class="font-headline text-5xl md:text-8xl font-extrabold text-on-surface tracking-tighter mb-10 leading-tight">
+                    Campos de Entrenamiento: <br/><span class="text-primary italic font-medium">La Forja de Jinetes</span>
+</h2>
+<div class="flex flex-wrap justify-center gap-6">
+<button class="border border-primary/40 text-primary px-12 py-5 font-label font-bold tracking-[0.2em] hover:bg-primary/10 transition-all backdrop-blur-md">
+                        VER MAPA TÁCTICO
+                    </button>
+</div>
+</div>
+</section>
+<!-- Content Wrapper with 10% margins -->
+<div class="w-[90%] md:w-[80%] mx-auto space-y-24 md:space-y-40 py-24">
+<!-- History/Role Section -->
+<section class="grid lg:grid-cols-2 gap-16 md:gap-24 items-center">
+<div class="space-y-10 order-2 lg:order-1">
+<div class="border-l-4 border-primary pl-8">
+<h3 class="font-headline text-4xl md:text-5xl text-on-surface tracking-tight leading-none uppercase">El Propósito del Acero</h3>
+<p class="font-label text-xs text-primary tracking-[0.3em] uppercase mt-4 font-bold">Fundamentos de la Supervivencia</p>
+</div>
+<div class="relative">
+<p class="text-on-surface/90 text-lg md:text-xl leading-relaxed first-letter:text-7xl first-letter:font-headline first-letter:text-primary first-letter:mr-4 first-letter:float-left first-letter:mt-1 first-letter:font-bold">
+                            En los campos de Basgiath, el sudor es el precio de la supervivencia. Aquí, la debilidad se quema y solo queda la determinación pura. Estos campos no son simplemente terrenos de ejercicio; son el crisol donde los cadetes se transforman en las armas más letales del reino. Cada cicatriz obtenida en este suelo es una lección escrita en sangre sobre la lealtad, la fuerza y el vínculo inquebrantable con el dragón.
+                        </p>
+</div>
+<div class="bg-surface-container-high p-8 md:p-10 border border-primary/10 relative overflow-hidden shadow-2xl">
+<div class="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
+<span class="material-symbols-outlined text-[100px] md:text-[140px]">skull</span>
+</div>
+<blockquote class="relative z-10">
+<p class="italic text-on-surface/80 font-body text-lg md:text-xl">
+                                "Un jinete sin entrenamiento es solo comida para dragones. Aquí aprendes a ser el jinete o mueres en el intento."
+                            </p>
+<footer class="mt-6 flex items-center gap-4">
+<span class="w-10 h-px bg-primary"></span>
+<cite class="text-primary not-italic font-label text-xs uppercase tracking-[0.2em] font-bold">Archivista Mayor</cite>
+</footer>
+</blockquote>
+</div>
+</div>
+<div class="relative order-1 lg:order-2">
+<div class="absolute -inset-4 border border-primary/20 translate-x-6 translate-y-6 -z-10"></div>
+<div class="relative overflow-hidden group">
+<img alt="Detalle de columna de piedra con motivos militares antiguos" class="w-full aspect-square object-cover grayscale brightness-75 border border-white/10 group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVZ0ZQKrmCUD8lT2yVTIEp7N6L4DYZzXvw4q-AzlI4XCNX5zMh2ZGW-1MGBXpCeDPlehxeybgHJiMYlulElOyFkxmKWV4TZbRyrBHAZrHhAYyX_1XQJoMr6wOZdxc0aM7x9qfV4qDcLh0z6Y5UY235qyv5cuA1Zv1H2gefFmtIEySbVP8SlOm83rOKdHA-MxL2A1jEkdf-r_n2qCNqfvgFD-r8oa8TG1yzT7ksgyz5QBqrqjSvWudM7cEIDtraYYxzIDMxbJ57D6U"/>
+<div class="absolute inset-0 bg-primary/5 mix-blend-overlay"></div>
+</div>
+</div>
+</section>
+<!-- Instruction Modules Grid -->
+<section class="space-y-16">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end border-b border-primary/20 pb-8 gap-4">
+<div>
+<h3 class="font-headline text-4xl text-primary uppercase tracking-tighter">Módulos de Instrucción</h3>
+<p class="text-on-surface/50 text-xs font-label uppercase tracking-[0.4em] mt-2">Currículo Obligatorio del Primer Año</p>
+</div>
+<span class="font-label text-[10px] text-on-surface/30 uppercase tracking-[0.3em]">Protocolo Militar 042-B</span>
+</div>
+<div class="grid md:grid-cols-3 gap-10">
+<!-- Tactics -->
+<div class="bg-surface-container-low border border-primary/10 hover:border-primary/40 transition-all duration-500 group relative overflow-hidden">
+<div class="p-8 md:p-10 space-y-8 relative z-10">
+<span class="material-symbols-outlined text-primary text-5xl group-hover:scale-110 transition-transform block" style="font-variation-settings: 'FILL' 1;">shield</span>
+<h4 class="font-headline text-3xl font-bold uppercase tracking-tight">Tácticas de Combate</h4>
+<p class="text-on-surface/70 text-base font-body leading-relaxed">Combate cuerpo a cuerpo, manejo de dagas y formación de defensa aérea. El control del terreno es la clave de la victory estratégica.</p>
+<ul class="space-y-4 font-label text-xs tracking-[0.2em] uppercase text-on-surface/50 pt-6">
+<li class="flex items-center gap-4"><span class="w-2 h-2 bg-primary rounded-full shadow-[0_0_8px_rgba(233,195,73,0.5)]"></span> Maniobras Terrestres</li>
+<li class="flex items-center gap-4"><span class="w-2 h-2 bg-primary rounded-full shadow-[0_0_8px_rgba(233,195,73,0.5)]"></span> Defensa de Flanco</li>
+<li class="flex items-center gap-4"><span class="w-2 h-2 bg-primary rounded-full shadow-[0_0_8px_rgba(233,195,73,0.5)]"></span> Combate de Asalto</li>
+</ul>
+</div>
+<div class="absolute bottom-0 right-0 w-32 h-32 bg-primary/5 blur-3xl rounded-full translate-x-10 translate-y-10"></div>
+</div>
+<!-- Flight -->
+<div class="bg-surface-container-high border-b-4 border-primary p-8 md:p-10 space-y-8 flex flex-col justify-between shadow-2xl relative">
+<div>
+<span class="material-symbols-outlined text-primary text-5xl" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<h4 class="font-headline text-3xl font-bold uppercase tracking-tight mt-8">Maestría de Vuelo</h4>
+<p class="text-on-surface/70 text-base font-body leading-relaxed mt-6">Sincronización con el dragón durante maniobras de alta gravedad. Técnicas de montura, anclaje y equilibrio en condiciones atmosféricas extremas.</p>
+</div>
+<div class="pt-10">
+<div class="flex justify-between mb-3">
+<span class="font-label text-[11px] text-on-surface/40 uppercase tracking-[0.2em]">Nivel de Eficiencia</span>
+<span class="font-label text-[11px] text-primary font-bold">75%</span>
+</div>
+<div class="w-full bg-background/80 h-2 overflow-hidden">
+<div class="bg-primary h-full w-[75%] shadow-[0_0_15px_rgba(233,195,73,0.5)]"></div>
+</div>
+</div>
+</div>
+<!-- Signet -->
+<div class="bg-surface-container-low border border-primary/10 p-8 md:p-10 space-y-8 flex flex-col justify-between hover:border-primary/40 transition-all duration-500">
+<div>
+<span class="material-symbols-outlined text-primary text-5xl">bolt</span>
+<h4 class="font-headline text-3xl font-bold uppercase tracking-tight mt-8">Entrenamiento de Sello</h4>
+<p class="text-on-surface/70 text-base font-body leading-relaxed mt-6">Canalización de poder a través del vínculo. Control de manifestaciones mágicas, disciplina mental severa y contención de flujo bajo presión de combate.</p>
+</div>
+<button class="w-full py-5 bg-secondary-container text-on-secondary-container font-label text-xs font-bold uppercase tracking-[0.3em] hover:brightness-125 transition-all mt-10">
+                            ACCESO RESTRINGIDO
+                        </button>
+</div>
+</div>
+</section>
+<!-- Tactical Schematic Section -->
+<section class="grid lg:grid-cols-12 gap-16 md:gap-20 items-center">
+<div class="lg:col-span-7 space-y-8">
+<div class="relative bg-black p-6 md:p-10 border border-primary/30 shadow-[0_0_50px_rgba(0,0,0,1)] group">
+<div class="absolute -top-14 -left-6 font-headline text-6xl md:text-9xl opacity-[0.03] select-none pointer-events-none text-primary italic font-bold">CODEX IV</div>
+<div class="overflow-hidden border border-primary/10 bg-[#0a0c10]">
+<img alt="Esquema arquitectónico de los sectores de entrenamiento" class="w-full h-auto blueprint-filter contrast-125 opacity-80 mix-blend-screen scale-110 group-hover:scale-100 transition-transform duration-[2s]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvOI9bmbHD591Wt-cgz50YQuEP6fnSxQHt5AGjtNtgD7qHh1SLqeFPH8IhQiTCXi7QkKA6Xk9sC60diIyvHQEG-M2RjukFjb4J7NFv69tJrpe9RWts7SnxaDiVXOOhKe6H8qKjHLIKbBOids1S6Xvhf5awS-LOWkhIQMUOFPT7PfuVjtHANJuH5PSKEPWTGWcF70D6dUm-UB2rw51DG9ZOzMlCA0959tQ87BDahOAY9BeRPefRfWKqLQxodRyn05AI3Vhs4bvu9v4"/>
+</div>
+<div class="mt-4 flex justify-between items-center text-[8px] md:text-[10px] font-label text-primary/40 tracking-[0.4em] uppercase">
+<span>Ref: Documento Militar BSG-992</span>
+<span>Secreto de Estado</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-5 space-y-12">
+<div class="space-y-6">
+<h3 class="font-headline text-4xl md:text-5xl uppercase tracking-tighter border-b border-primary/20 pb-6">Esquema Táctico</h3>
+<p class="text-on-surface/80 text-lg leading-relaxed font-body">
+                            Referencia visual oficial de los sectores de entrenamiento de Basgiath. Documento de alta fidelidad que detalla la red de obstáculos críticos, la fosa de combate de arena y las torres de vigilancia perimetral para dragones.
+                        </p>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-center py-5 border-b border-white/5 hover:bg-white/5 px-4 transition-colors group">
+<span class="font-label text-xs uppercase text-on-surface/50 tracking-[0.2em] group-hover:text-on-surface transition-colors">Sector Alfa</span>
+<span class="text-primary text-xs font-bold tracking-[0.2em]">ZONA DE VUELO</span>
+</div>
+<div class="flex justify-between items-center py-5 border-b border-white/5 hover:bg-white/5 px-4 transition-colors group">
+<span class="font-label text-xs uppercase text-on-surface/50 tracking-[0.2em] group-hover:text-on-surface transition-colors">Sector Beta</span>
+<span class="text-primary text-xs font-bold tracking-[0.2em]">EL RING DE ACERO</span>
+</div>
+<div class="flex justify-between items-center py-5 border-b border-white/5 hover:bg-white/5 px-4 transition-colors group">
+<span class="font-label text-xs uppercase text-on-surface/50 tracking-[0.2em] group-hover:text-on-surface transition-colors">Sector Gamma</span>
+<span class="text-primary text-xs font-bold tracking-[0.2em]">ARCHIVOS MILITARES</span>
+</div>
+<div class="flex justify-between items-center py-5 border-b border-white/5 hover:bg-white/5 px-4 transition-colors group">
+<span class="font-label text-xs uppercase text-on-surface/50 tracking-[0.2em] group-hover:text-on-surface transition-colors">Sector Delta</span>
+<span class="text-primary text-xs font-bold tracking-[0.2em]">EL PEAJE</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Schedule Section -->
+<section class="bg-surface-container border border-primary/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden relative">
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(233,195,73,0.05)_0%,transparent_70%)]"></div>
+<div class="p-8 md:p-20 relative z-10">
+<div class="text-center mb-12 md:mb-20">
+<h3 class="font-headline text-4xl md:text-6xl mb-6 uppercase tracking-tighter">Cronograma de Maniobras</h3>
+<div class="flex items-center justify-center gap-6">
+<span class="h-px w-10 md:w-20 bg-primary/30"></span>
+<p class="font-label text-[10px] md:text-xs text-primary tracking-[0.4em] md:tracking-[0.6em] uppercase font-bold">Estado Actual de las Alas</p>
+<span class="h-px w-10 md:w-20 bg-primary/30"></span>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse min-w-[700px]">
+<thead>
+<tr class="border-b border-primary/30">
+<th class="py-8 font-label text-xs text-on-surface/50 tracking-[0.4em] uppercase px-6">Ala / Escuadrón</th>
+<th class="py-8 font-label text-xs text-on-surface/50 tracking-[0.4em] uppercase px-6">Actividad</th>
+<th class="py-8 font-label text-xs text-on-surface/50 tracking-[0.4em] uppercase px-6">Horario Estelar</th>
+<th class="py-8 font-label text-xs text-on-surface/50 tracking-[0.4em] uppercase px-6 text-right">Estatus</th>
+</tr>
+</thead>
+<tbody class="text-base font-body">
+<tr class="border-b border-white/5 hover:bg-white/5 transition-colors group">
+<td class="py-10 font-bold px-6 text-xl text-primary/90 group-hover:text-primary transition-colors">Ala de Llama</td>
+<td class="py-10 text-on-surface/70 px-6">Combate Aéreo Vertical</td>
+<td class="py-10 text-primary px-6 font-label font-bold tracking-widest">06:00 - 09:00</td>
+<td class="py-10 text-right px-6"><span class="inline-block px-5 py-2 bg-green-950/30 border border-green-500/30 text-green-400 text-[11px] font-black tracking-[0.3em] uppercase">EN PROGRESO</span></td>
+</tr>
+<tr class="border-b border-white/5 hover:bg-white/5 transition-colors group">
+<td class="py-10 font-bold px-6 text-xl text-primary/90 group-hover:text-primary transition-colors">Ala de Hierro</td>
+<td class="py-10 text-on-surface/70 px-6">Resistencia al Fuego de Dragón</td>
+<td class="py-10 text-primary px-6 font-label font-bold tracking-widest">09:30 - 12:30</td>
+<td class="py-10 text-right px-6"><span class="inline-block px-5 py-2 bg-primary/10 border border-primary/30 text-primary text-[11px] font-black tracking-[0.3em] uppercase">PROGRAMADO</span></td>
+</tr>
+<tr class="border-b border-white/5 hover:bg-white/5 transition-colors group">
+<td class="py-10 font-bold px-6 text-xl text-primary/90 group-hover:text-primary transition-colors">Ala de Garra</td>
+<td class="py-10 text-on-surface/70 px-6">Maniobras de Descenso Libre</td>
+<td class="py-10 text-primary px-6 font-label font-bold tracking-widest">14:00 - 17:00</td>
+<td class="py-10 text-right px-6"><span class="inline-block px-5 py-2 bg-primary/10 border border-primary/30 text-primary text-[11px] font-black tracking-[0.3em] uppercase">PROGRAMADO</span></td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="py-10 font-bold px-6 text-xl text-primary/90 group-hover:text-primary transition-colors">Ala de Sombra</td>
+<td class="py-10 text-on-surface/70 px-6">Infiltración y Sigilo Nocturno</td>
+<td class="py-10 text-primary px-6 font-label font-bold tracking-widest">21:00 - 00:00</td>
+<td class="py-10 text-right px-6"><span class="inline-block px-5 py-2 bg-red-950/30 border border-red-500/30 text-red-400 text-[11px] font-black tracking-[0.3em] uppercase">ALERTA</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<footer class="text-center pt-24 pb-40 border-t border-primary/20 space-y-6">
+<p class="font-headline text-2xl text-primary mb-4 uppercase tracking-[0.3em] font-bold">COLEGIO DE GUERRA BASGIATH</p>
+<p class="font-label text-xs text-on-surface/50 tracking-[0.2em] uppercase max-w-2xl mx-auto leading-relaxed px-6">
+                    PROPIEDAD DEL COLEGIO DE GUERRA BASGIATH. Cualquier filtración de este documento será castigada como alta traición.
+                </p>
+<div class="flex justify-center gap-10 pt-8 opacity-30">
+<span class="material-symbols-outlined text-3xl">security</span>
+<span class="material-symbols-outlined text-3xl">policy</span>
+<span class="material-symbols-outlined text-3xl">gavel</span>
+</div>
+</footer>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Icons) -->
+<script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const menuClose = document.getElementById('menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuDrawer = document.getElementById('menu-drawer');
+        const menuOverlay = document.getElementById('menu-overlay');
+
+        function openMenu() {
+            mobileMenu.classList.remove('hidden');
+            setTimeout(() => {
+                menuDrawer.classList.remove('translate-x-full');
+            }, 10);
+        }
+
+        function closeMenu() {
+            menuDrawer.classList.add('translate-x-full');
+            setTimeout(() => {
+                mobileMenu.classList.add('hidden');
+            }, 300);
+        }
+
+        menuToggle.addEventListener('click', openMenu);
+        menuClose.addEventListener('click', closeMenu);
+        menuOverlay.addEventListener('click', closeMenu);
+    </script>
+</body></html>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>El Códice de Jinetes | Archivos de Basgiath</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Noto+Serif:ital,wght@0,100..900;1,100..900&amp;family=Work+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#93000a",
+                        "tertiary-container": "#424242",
+                        "surface": "#131313",
+                        "error": "#ffb4ab",
+                        "primary": "#e9c349",
+                        "metallic-gold": "#C5A059",
+                        "tertiary": "#c8c6c6",
+                        "on-surface": "#e5e2e1",
+                        "primary-fixed-dim": "#e9c349",
+                        "on-surface-variant": "#e3beb8",
+                        "primary-container": "#524000",
+                        "primary-fixed": "#ffe088",
+                        "surface-container": "#201f1f",
+                        "secondary-fixed": "#ffdad4",
+                        "outline-variant": "#5a403c",
+                        "on-primary-container": "#d0ab33",
+                        "secondary-fixed-dim": "#ffb4a8",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "surface-container-high": "#2a2a2a",
+                        "inverse-primary": "#735c00",
+                        "surface-bright": "#3a3939",
+                        "inverse-on-surface": "#313030",
+                        "surface-container-low": "#1c1b1b",
+                        "secondary-container": "#920703",
+                        "on-secondary-container": "#ff9a8a",
+                        "surface-variant": "#353534",
+                        "on-tertiary-fixed": "#1b1c1c",
+                        "text-amber-400": "#fbbf24",
+                        "tertiary-fixed-dim": "#c8c6c6",
+                        "inverse-surface": "#e5e2e1",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#920703",
+                        "on-primary": "#3c2f00",
+                        "outline": "#aa8984",
+                        "on-background": "#e5e2e1",
+                        "on-secondary-fixed": "#410000",
+                        "on-secondary": "#690000",
+                        "on-error": "#690005",
+                        "surface-tint": "#e9c349",
+                        "secondary": "#ffb4a8",
+                        "on-primary-fixed": "#241a00",
+                        "surface-dim": "#131313",
+                        "on-tertiary-container": "#b0aeae",
+                        "on-tertiary": "#303030",
+                        "tertiary-fixed": "#e4e2e2",
+                        "background": "#131313",
+                        "surface-container-highest": "#353534",
+                        "on-primary-fixed-variant": "#574500"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Newsreader"],
+                        "body": ["Noto Serif"],
+                        "label": ["Work Sans"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0e0e0e; }
+        ::-webkit-scrollbar-thumb { background: #524000; }
+        .codex-card-title {
+            position: absolute;
+            top: -1.5rem;
+            left: 1.5rem;
+            z-index: 10;
+        }
+        .embers-bg {
+            background-image: radial-gradient(circle at center, rgba(233,195,73,0.05) 0%, transparent 70%);
+        }
+        #mobile-menu-overlay {
+            transition: transform 0.3s ease-in-out, visibility 0.3s;
+        }
+        .drawer-open #mobile-menu-overlay {
+            transform: translateX(0);
+        }
+        .drawer-closed #mobile-menu-overlay {
+            transform: translateX(100%);
+        }
+    </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface font-body selection:bg-primary-container selection:text-primary overflow-x-hidden drawer-closed">
+<!-- Navigation Drawer (Right Side) -->
+<div class="fixed inset-y-0 right-0 z-[60] flex flex-col p-8 bg-[#0e0e0e] w-80 h-full shadow-[32px_0_64px_rgba(0,0,0,0.5)] transform translate-x-full transition-all duration-300 ease-in-out" id="mobile-menu-overlay">
+<div class="flex justify-between items-center mb-12">
+<span class="font-headline font-black text-[#e9c349] text-2xl uppercase tracking-tighter">THE ARCHIVIST</span>
+<button class="text-[#e9c349] active:scale-95 duration-200" onclick="toggleMobileMenu()">
+<span class="material-symbols-outlined text-3xl">close</span>
+</button>
+</div>
+<nav class="flex flex-col gap-6">
+<a class="flex items-center gap-4 text-[#e9c349] font-headline italic text-2xl font-bold border-l-2 border-[#e9c349] pl-4 transition-all duration-300" href="#" onclick="toggleMobileMenu()">
+<span class="material-symbols-outlined">home</span>
+            INICIO
+        </a>
+<a class="flex items-center gap-4 text-zinc-500 font-label uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] transition-all duration-300" href="#" onclick="toggleMobileMenu()">
+<span class="material-symbols-outlined">military_tech</span>
+            JINETES
+        </a>
+<a class="flex items-center gap-4 text-zinc-500 font-label uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] transition-all duration-300" href="#" onclick="toggleMobileMenu()">
+<span class="material-symbols-outlined">auto_awesome</span>
+            DRAGONES
+        </a>
+<a class="flex items-center gap-4 text-zinc-500 font-label uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] transition-all duration-300" href="#" onclick="toggleMobileMenu()">
+<span class="material-symbols-outlined">map</span>
+            MAPAS
+        </a>
+<a class="flex items-center gap-4 text-zinc-500 font-label uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] transition-all duration-300" href="#" onclick="toggleMobileMenu()">
+<span class="material-symbols-outlined">scroll</span>
+            CONVOCATORIA
+        </a>
+<a class="flex items-center gap-4 text-zinc-500 font-label uppercase tracking-widest text-xs pl-4 hover:bg-zinc-900 hover:text-[#e9c349] transition-all duration-300" href="#" onclick="toggleMobileMenu()">
+<span class="material-symbols-outlined">payments</span>
+            EL PEAJE
+        </a>
+</nav>
+<div class="mt-auto pt-8 border-t border-[#2a2a2a] flex justify-center gap-8">
+<span class="material-symbols-outlined text-[#e9c349] cursor-pointer hover:opacity-80 transition-opacity">search</span>
+<span class="material-symbols-outlined text-[#e9c349] cursor-pointer hover:opacity-80 transition-opacity">account_circle</span>
+</div>
+</div>
+<!-- TopAppBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#0e0e0e]/70 backdrop-blur-xl h-16 border-b border-metallic-gold/20">
+<div class="flex justify-between items-center px-6 h-full w-full">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#e9c349]">shield</span>
+<div class="font-headline font-bold tracking-tighter text-[#e9c349] text-2xl">BASGIATH</div>
+</div>
+<!-- Desktop Nav -->
+<div class="hidden md:flex items-center gap-8 font-headline uppercase tracking-widest text-sm">
+<a class="text-[#e9c349] hover:text-[#e9c349] transition-colors" href="#">Inicio</a>
+<a class="text-zinc-400 hover:text-[#e9c349] transition-colors" href="#">Jinetes</a>
+<a class="text-zinc-400 hover:text-[#e9c349] transition-colors" href="#">Dragones</a>
+<a class="text-zinc-400 hover:text-[#e9c349] transition-colors" href="#">Mapas</a>
+<a class="text-zinc-400 hover:text-[#e9c349] transition-colors" href="#">Convocatoria</a>
+<a class="text-zinc-400 hover:text-[#e9c349] transition-colors" href="#">El Peaje</a>
+</div>
+<!-- Icons & Mobile Trigger -->
+<div class="flex items-center gap-4">
+<div class="hidden md:flex items-center gap-6">
+<span class="material-symbols-outlined text-[#e9c349] cursor-pointer hover:opacity-80 transition-opacity">search</span>
+<span class="material-symbols-outlined text-[#e9c349] cursor-pointer hover:opacity-80 transition-opacity">account_circle</span>
+</div>
+<!-- Hamburger Menu Button (On Right) -->
+<button class="text-[#e9c349] flex items-center justify-center p-2 active:scale-95 duration-200" onclick="toggleMobileMenu()">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="w-full pt-16">
+<!-- Hero Section -->
+<header class="relative h-[calc(100vh-4rem)] w-full flex items-center justify-center overflow-hidden">
+<img alt="El Códice de Jinetes" class="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-luminosity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUQ5ODOVnCNEKNtc724U7ePgVryiFrQs3Tr5fJI8Lj3q-nL6fHtb3hmCV4kpfFeDuu4HTBgbW3Vurft0lEQxrivL1MzycGL77OdJvrYrOoJ5YLj5yarKKd5NddU0IqWXTwTV-m_9C499ZUlHJp32_h1HMo8C53N3TX2nsxRkSZNEEbBBP7y880DHLgOk60VRPum6545iZXS4Qik6g2ot_qCtdqQRJAogkCbEJOAhtrydyB_beXrisoqMefburc2hXrJBrz1Z58s9Q"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-surface-container-lowest"></div>
+<div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
+<span class="block font-label text-primary text-sm uppercase tracking-[0.5em] mb-4">Registro de Sangre y Acero</span>
+<h1 class="font-headline text-5xl md:text-9xl text-primary font-black tracking-tighter leading-none mb-6">
+                    El Códice de Jinetes
+                </h1>
+<p class="font-body text-lg md:text-2xl text-on-surface-variant max-w-3xl mx-auto italic">
+                    "Un jinete sin su dragón es un cadáver. Un dragón sin su jinete es una tragedia."
+                </p>
+<div class="mt-12 flex flex-col md:flex-row justify-center gap-4 md:gap-6">
+<button class="bg-primary text-on-primary px-10 py-5 rounded-sm font-label font-bold uppercase tracking-widest text-sm hover:brightness-110 transition-all shadow-[0_0_25px_rgba(233,195,73,0.3)]">
+                        Consultar Archivos
+                    </button>
+<button class="border border-primary/50 text-primary px-10 py-5 rounded-sm font-label font-bold uppercase tracking-widest text-sm hover:bg-primary-container hover:border-primary transition-all">
+                        Estatutos de Basgiath
+                    </button>
+</div>
+</div>
+</header>
+<!-- Lore Section -->
+<section class="py-20 md:py-32 px-6 md:px-24 bg-surface-container-low embers-bg border-y border-primary/5">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row-reverse gap-12 md:gap-20 items-center">
+<div class="relative w-full md:w-5/12">
+<div class="absolute -top-4 -left-4 md:-top-6 md:-left-6 w-full h-full border border-primary/30"></div>
+<img alt="Atmospheric illustration of a Scribe working at a desk with parchment and books" class="relative z-10 w-full aspect-[4/5] object-cover grayscale hover:grayscale-0 transition-all duration-1000 shadow-[0_0_50px_rgba(0,0,0,0.5)]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-jQoPhgfbmVFMP9CgxiI-rEPo6x0xjMzTr5PkY2ytU7cwvH_NC0-TpcauLw-owu_8obsavC35vcho9694wHlXk6iY8ZrICAZuMr8VtIPbdKy4q4ZY_91_-pjy1wzde6nImLlcAlOO8VC4sR3Y9YZY6bUy6A3mAu_003LRNhinSY9eq9YtS0SMrMIl04ebYBur17LLvWIUnX3mfcwJV5BpJ5D6ql2G1f1exe2k3wzZNgtYGZUT15Fta5q1R2w6qhCaZXAfCa1Cei0"/>
+</div>
+<div class="space-y-8 md:space-y-10 w-full md:w-7/12">
+<div class="inline-block px-4 py-1 border border-primary/20 bg-primary/5 font-label text-[10px] uppercase tracking-[0.4em] text-primary mb-2">Sección de Archivos 4</div>
+<h2 class="font-headline text-4xl md:text-6xl text-primary font-bold leading-tight">La Verdad en el Pergamino</h2>
+<div class="space-y-6 md:space-y-8 text-[#f5f5dc] text-lg md:text-xl leading-relaxed font-body font-light opacity-90">
+<p>
+                            En el Colegio de Guerra de Basgiath, la historia no la escriben los vencedores, sino los Escribas. El Códice de Jinetes es el registro definitivo de cada vínculo formado en el Trilla y cada vida perdida en el Guantelete.
+                        </p>
+<p>
+                            Mientras el Cuadrante de Jinetes domina los cielos con fuego y escamas, el Cuadrante de Escribas protege el conocimiento que mantiene a Navarre a salvo. Cada Sello (Signet) manifestado es catalogado, desde la creación de sombras hasta el control del rayo.
+                        </p>
+</div>
+<div class="pt-4 md:pt-8">
+<div class="flex items-center gap-4 md:gap-6 text-primary">
+<span class="h-[1px] w-12 md:w-20 bg-primary/40"></span>
+<span class="font-label uppercase tracking-[0.2em] md:tracking-[0.3em] text-[10px] md:text-xs font-black">UNA MENTE BIEN ARMADA ES TAN PELIGROSA COMO UN DRAGÓN</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Key Figures Section -->
+<section class="py-20 md:py-32 px-6 md:px-24 bg-surface-container-lowest">
+<div class="text-center mb-16 md:mb-24">
+<h2 class="font-headline text-4xl md:text-7xl text-primary font-bold mb-6">Figuras del Trilla</h2>
+<p class="font-label text-on-surface-variant uppercase tracking-[0.3em] md:tracking-[0.5em] text-[10px] md:text-xs">Nombres grabados en las páginas del destino</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-12 max-w-7xl mx-auto">
+<!-- Violet -->
+<div class="group relative bg-surface-container-high p-8 pt-12 transition-all hover:bg-surface-container-highest border border-primary/5 hover:border-primary/20">
+<div class="codex-card-title">
+<span class="bg-primary text-on-primary px-6 py-2 font-headline font-bold text-xl shadow-lg">Violet Sorrengail</span>
+</div>
+<img alt="Violet Sorrengail" class="w-full h-80 object-cover mb-8 transition-all duration-500" src="https://lh3.googleusercontent.com/aida/ADBb0ugVSZcFdPcNSksy3apRGKBJUbnvWg3FVHf2RP1Uj3Iqrx4gG-zYfBzUMee9zdk-q6bfIe59y2cdKaSxknHycDYZtM0MP0Hxk9Xyv9g3Yz-ex7_cYi5wMkyiQ-nNm7td3OydDa220OUmm2l9rEyzTIWIXpkF8HYT30t2D5_cb59HtkHoY0ez3ERrL2z-GSBcH9gFbflc4fL2Uf9CXkygc-vgL99WlNJ9aPoxqulZhdgOkVqBG8SEF3N1xTI"/>
+<h4 class="font-label text-primary uppercase tracking-widest text-xs mb-3 font-bold">Descripción</h4>
+<p class="text-on-surface-variant font-body text-base leading-relaxed mb-6">
+                        Mujer joven (20 años), de aspecto frágil pero mirada decidida. Cabello largo que termina en puntas plateadas.
+                    </p>
+<p class="text-primary font-body italic text-base border-t border-primary/10 pt-4">"No moriré hoy."</p>
+</div>
+<!-- Xaden -->
+<div class="group relative bg-surface-container-high p-8 pt-12 transition-all hover:bg-surface-container-highest border border-primary/5 hover:border-primary/20">
+<div class="codex-card-title">
+<span class="bg-primary text-on-primary px-6 py-2 font-headline font-bold text-xl shadow-lg">Xaden Riorson</span>
+</div>
+<img alt="Xaden Riorson" class="w-full h-80 object-cover mb-8 transition-all duration-500" src="https://lh3.googleusercontent.com/aida/ADBb0uhyn7cX9caR2qd0nLXxJ1PSL4ForN-G6zZs4vzq5ZmxEcMJ95189E1gElWFrId6hadJ0edb2UAPdDDVM3XqdaujOs5uvZDluqTHr_mmd3TCx25hwPSWE-ajxDq6qdbQkY8OGV3n1Wi2hvqmLjKbg6yKrjaXaIaC0KpvXs5IbGDuhpL0OXixPFhbyyxuTQCW6x3fR7yc7YkSN7BNw0YK2jCoFG1IRlp3331Ln4Cf1a3MPz2MvL65RbGG6vI"/>
+<h4 class="font-label text-primary uppercase tracking-widest text-xs mb-3 font-bold">Descripción</h4>
+<p class="text-on-surface-variant font-body text-base leading-relaxed mb-6">
+                        Hombre joven, alto, rasgos marcados, piel morena y una cicatriz en la mandíbula. Rodeado de sombras.
+                    </p>
+<p class="text-primary font-body italic text-base border-t border-primary/10 pt-4">"Las sombras no mienten."</p>
+</div>
+<!-- Tairn -->
+<div class="group relative bg-surface-container-high p-8 pt-12 transition-all hover:bg-surface-container-highest border border-primary/5 hover:border-primary/20">
+<div class="codex-card-title">
+<span class="bg-primary text-on-primary px-6 py-2 font-headline font-bold text-xl shadow-lg">Tairn</span>
+</div>
+<img alt="Tairn" class="w-full h-80 object-cover mb-8 transition-all duration-500" src="https://lh3.googleusercontent.com/aida/ADBb0ui2qxqHODF8G8n6Q2HH8mq5F2jd9KAcwv0JjrJ7iCf8SzNUOx1mAqKpPiuK97_LbkR10YHZQGNh5s0MY_NPnKXPRwCZKTKELS_Ze-bOOUUOKwxHcOTclo9GiA28NYDy6vMLMbSoR1VSI0KqjKHw7jd00SBFqM4UJ0pUm-xz-ThipyXtUB9PMfgN9_CgSpRoy0OmmdTqoYCJqxZwaIVHwXVteYB7pNIKcRAD9ovwMKCAoDX0z8MEffsjEpQ"/>
+<h4 class="font-label text-primary uppercase tracking-widest text-xs mb-3 font-bold">Raza: Cola de Daga</h4>
+<p class="text-on-surface-variant font-body text-base leading-relaxed mb-6">Dragón gigante negro, imponente, con escamas negras como la obsidiana y ojos dorados.</p>
+<p class="text-primary font-body italic text-base border-t border-primary/10 pt-4 leading-relaxed">
+                        "Un dragón sin su jinete es una tragedia."
+                    </p>
+</div>
+</div>
+</section>
+<!-- Dragons of Legend (Grid) -->
+<section class="py-20 md:py-32 px-6 md:px-24 bg-surface-container-low border-t border-primary/10">
+<h2 class="font-headline text-4xl md:text-5xl text-primary font-bold mb-16 text-center">Vínculos Sagrados</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 max-w-7xl mx-auto">
+<div class="bg-surface-container p-8 md:p-10 border border-primary/10 transition-all hover:bg-surface-container-high">
+<h3 class="font-headline text-3xl text-primary mb-6">Sgaeyl</h3>
+<p class="text-base text-on-surface-variant mb-8 leading-relaxed">Letal dragón azul marino de raza Cola de Daga. Vinculada a Xaden Riorson.</p>
+<div class="w-full h-56 bg-[#0e0e0e] flex items-center justify-center overflow-hidden">
+<img alt="Sgaeyl" class="w-full h-full object-cover transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBe7izupBhBEgw8SU1-Kn89u19oPsd5LW8TFee20tbXGngEOGdHp6hs4Q7U1UZsDCspYxg6YL6YpXcz6skEZ1Kjm2j4Gn-YpjBX_WM1yTXbVlNUrE-a4y9TqBYsOSVZAI_IaxO3f0XBF0Zhs1Yv49Kxr4xeGT_A5rBHjCwXq0jjYeAsjxgMdIwPLa8-t541v8O4QnBDrHMuLf150PGd-B89pK5fgVLqncK7n_Qd1hpL60MrifHmMu5zWWp7rYjRmuUP16-a_BX4i5k"/>
+</div>
+</div>
+<div class="bg-surface-container p-8 md:p-10 border border-primary/10 transition-all hover:bg-surface-container-high">
+<h3 class="font-headline text-3xl text-primary mb-6">Andarna</h3>
+<p class="text-base text-on-surface-variant mb-8 leading-relaxed">Pequeña y brillante dragón dorado de raza Cola de Pluma. Segundo vínculo de Violet.</p>
+<div class="w-full h-56 bg-[#0e0e0e] flex items-center justify-center overflow-hidden">
+<img alt="Andarna" class="w-full h-full object-cover transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEEewcPkRKQB7eebzVFiSPi7ZzuED2qNXu_f4RDR0PedwzM9s1KYXuoREo79dldqSXu4aOH1-WymkGYEtdXRWYbC2MiRuKrmjAtQIrhQ_2a_8JRcU7q_UclI0t1J9mDeUxifBpasWVqEnfzx6KVM2RZupVtnl5m0oGZTeoCCpA4hkzAIhnEp9Vq9XtfQkLzUKRrGkNX4RcQmTPW8_6ayp5xghyX2FjfcHXyTjov_2HSuxow80rX9Is9SmykZDbqMR8HIjCQeMrgjM"/>
+</div>
+</div>
+<div class="bg-[#920703]/5 p-8 md:p-10 border border-[#920703]/30 flex flex-col justify-center text-center">
+<div class="flex flex-col items-center gap-6 mb-6">
+<span class="material-symbols-outlined text-5xl text-secondary">skull</span>
+<h4 class="font-headline text-3xl md:text-4xl text-secondary">El Tributo</h4>
+</div>
+<p class="text-lg text-on-surface-variant italic leading-relaxed">"La mayoría morirá. Algunos sobrevivirán. Solo los fuertes serán jinetes."</p>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-16 max-w-7xl mx-auto">
+<div class="bg-surface-container p-6 md:p-8 text-center border border-white/5 hover:border-primary/20 transition-colors">
+<h4 class="font-label text-primary text-2xl md:text-3xl font-black mb-2">I</h4>
+<p class="text-[9px] md:text-[10px] font-label uppercase tracking-widest text-on-surface-variant">Sección Principal</p>
+</div>
+<div class="bg-surface-container p-6 md:p-8 text-center border border-white/5 hover:border-primary/20 transition-colors">
+<h4 class="font-label text-primary text-2xl md:text-3xl font-black mb-2">X</h4>
+<p class="text-[9px] md:text-[10px] font-label uppercase tracking-widest text-on-surface-variant">Jinetes Caídos</p>
+</div>
+<div class="bg-surface-container p-6 md:p-8 text-center border border-white/5 hover:border-primary/20 transition-colors">
+<h4 class="font-label text-primary text-2xl md:text-3xl font-black mb-2">IV</h4>
+<p class="text-[9px] md:text-[10px] font-label uppercase tracking-widest text-on-surface-variant">Cuadrantes</p>
+</div>
+<div class="bg-surface-container p-6 md:p-8 text-center border border-white/5 hover:border-primary/20 transition-colors">
+<h4 class="font-label text-primary text-2xl md:text-3xl font-black mb-2">C</h4>
+<p class="text-[9px] md:text-[10px] font-label uppercase tracking-widest text-on-surface-variant">Dragones Vinculados</p>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-[#0e0e0e] flex flex-col items-center py-16 md:py-24 px-6 md:px-8 gap-10 md:gap-12 w-full mt-auto border-t border-primary/10">
+<div class="text-xl md:text-3xl font-['Newsreader'] font-black text-[#e9c349] tracking-[0.2em] md:tracking-[0.3em] text-center">COLEGIO DE GUERRA BASGIATH</div>
+<nav class="flex flex-wrap justify-center gap-6 md:gap-12">
+<a class="font-['Noto_Serif'] text-[10px] md:text-xs uppercase tracking-[0.2em] text-[#e5e2e1]/40 hover:text-[#e9c349] transition-all" href="#">Protocolos de Academia</a>
+<a class="font-['Noto_Serif'] text-[10px] md:text-xs uppercase tracking-[0.2em] text-[#e5e2e1]/40 hover:text-[#e9c349] transition-all" href="#">Registro de Jinetes</a>
+<a class="font-['Noto_Serif'] text-[10px] md:text-xs uppercase tracking-[0.2em] text-[#e5e2e1]/40 hover:text-[#e9c349] transition-all" href="#">El Guantelete</a>
+<a class="font-['Noto_Serif'] text-[10px] md:text-xs uppercase tracking-[0.2em] text-[#e5e2e1]/40 hover:text-[#e9c349] transition-all" href="#">Contactar Archivista</a>
+</nav>
+<div class="flex flex-col items-center gap-6">
+<div class="w-32 h-[1px] bg-primary/20"></div>
+<p class="text-center text-[9px] md:text-[10px] tracking-[0.4em] md:tracking-[0.5em] text-[#e5e2e1]/20 max-w-3xl font-label uppercase leading-loose px-4">
+                    © COLEGIO DE GUERRA BASGIATH. PROPIEDAD DEL CUADRANTE DE ESCRIBAS. EL ACCESO NO AUTORIZADO SE PAGA CON EL TRIBUTO.
+                </p>
+</div>
+</footer>
+</main>
+<script>
+    function toggleMobileMenu() {
+        const body = document.body;
+        const overlay = document.getElementById('mobile-menu-overlay');
+        
+        if (body.classList.contains('drawer-closed')) {
+            body.classList.remove('drawer-closed');
+            body.classList.add('drawer-open');
+            overlay.classList.remove('translate-x-full');
+            overlay.classList.add('translate-x-0');
+            body.style.overflow = 'hidden';
+        } else {
+            body.classList.add('drawer-closed');
+            body.classList.remove('drawer-open');
+            overlay.classList.add('translate-x-full');
+            overlay.classList.remove('translate-x-0');
+            body.style.overflow = '';
+        }
+    }
+</script>
+</body></html>
